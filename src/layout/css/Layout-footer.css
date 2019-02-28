@@ -1,0 +1,78 @@
+body{
+    font-family: NotoSans,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+.footer-layout-top{
+    background : #e9e9e9;
+}
+
+.item-list-menu-category-footer-pc a{
+    color: #a1a1a1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.item-list-menu-category-footer-pc a:hover{
+    text-decoration: underline;
+    color: #a1a1a1;
+}
+
+.text-title-footer-content-right{
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #666;
+}
+@media only screen and (max-width: 768px) {
+
+    #footer-content-left , #footer-content-right, .footer-layout-top{
+        display: none;
+    }
+
+    /*footer-bottom*/
+    .footer-layout-bottom{
+        margin-top: 10px;
+        background: #222;
+        border-top: 3px solid #ff6d15;
+    }
+    .footer-content-center{
+        padding-top: 20px;
+    }
+    .title-footer-content-center{
+        border-bottom: 1px solid #666;
+        padding: 10px  0px;
+    }
+    .title-footer-content-center h3{
+        font-weight: bold;
+        font-size: 14px;
+        color: #555;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    .text-item-footer-bottom{
+        color: #666;
+        font-size: 12px;
+    }
+    .footer-content-left, .footer-content-right{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .title-footer-content-center h3{
+        font-size: 14px;
+        font-weight: bold;
+        color: #555;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+    .text-item-footer-bottom{
+        font-size: 13px;
+        line-height: 18px;
+        color: #777;
+    }
+    .text-item-footer-bottom hihi{
+        color: yellow;
+    }
+
+}
