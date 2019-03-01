@@ -20,8 +20,7 @@ class App extends Component {
                     <div className="main-route-place">
                         <Switch>
                             <Route exact path="/" component={ContentHompage}/>
-                            <Route exact path="/category/:userId" render = {({match})=>(
-                                <ContentCaegoty match={match}/>)}/>
+                            <Route exact path="/category/:userId" render = {props => <ContentCaegoty {...props} />}/>
                         </Switch>
                     </div>
 

@@ -11,26 +11,48 @@ class ContentCaegoty extends Component{
     constructor(props){
         super(props);
         this.state = {
-            news :[]
+            news :[],
+            userId: undefined
         }
     }
 
     getNews = () => {
-        axios.get(`https://smartnews.nal.vn/api/category/news/${this.props.match.params.userId}`)
+
+        axios.get(`https://smartnews.nal.vn/api/category/news/${this.state.userId}`)
             .then((response) => {
                 const getCategory = response.data.data.data;
                 this.setState({
-                    news:getCategory
-                })
-                console.log(this.state.news);
+                        news:getCategory
+                    })
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
 
+
+    getId = ()=>{
+        const haha = this.props.match.params.userId;
+        this.setState({
+            userId : haha
+        })
+    }
+
+    componentWillMount() {
+        this.getId();
+    }
     componentDidMount() {
-        this.getNews();
+        this.getNews()
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (nextProps.match.params.userId !== this.props.match.params.userId){
+            const currentProductId = nextProps.match.params.userId;
+            this.setState({
+                userId : currentProductId
+            })
+            this.forceUpdate(this.getNews)
+        }
     }
 
     renderNewsLeftFeature = () => {
@@ -66,11 +88,7 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopHotFeature = () => {
-        if (this.state.news.length == 0) {
-            console.log(this.state.news)
-        } else
-        {
-            console.log(this.state.news[0].title)
+        if (this.state.news.length !== 0) {
             return(
                 <div>
                     <a href="#">
@@ -87,10 +105,7 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopRightHotFeature = () => {
-        if (this.state.news.length == 0) {
-            console.log(this.state.news)
-        } else
-        {
+        if (this.state.news.length !== 0) {
             return(
                 <div>
                     <a href="#">

@@ -10,8 +10,6 @@ class ContentHompage extends Component {
         super(props);
         this.state = {
             news: [],
-            hasMore: true,
-            loading: false,
             api: "https://smartnews.nal.vn/api/news"
         };
     }
@@ -19,9 +17,8 @@ class ContentHompage extends Component {
     getNews = () => {
         axios.get(this.state.api)
             .then((response) => {
-
                 const getNews = response.data.data.data;
-                // console.log(getNews);
+                 console.log(getNews);
                 this.setState({
                     news: getNews
                 })
@@ -91,12 +88,8 @@ class ContentHompage extends Component {
     }
 
     renderNewsTopHotFeature = () => {
-        if (this.state.news.length == 0) {
-            console.log(this.state.news)
-        } else
-            {
-            console.log(this.state.news[0].title)
-            return(
+        if (this.state.news.length !== 0) {
+            return (
                 <div>
                     <a href="#">
                         <img className="img-news-hot-top-fl"
@@ -107,15 +100,11 @@ class ContentHompage extends Component {
                         <a href="#">{this.state.news[5].title}</a>
                     </h3>
                 </div>
-            );
+            )
         }
     }
-
     renderNewsTopRightHotFeature = () => {
-        if (this.state.news.length == 0) {
-            console.log(this.state.news)
-        } else
-        {
+        if (this.state.news.length !== 0) {
             return(
                 <div>
                     <a href="#">
@@ -134,7 +123,6 @@ class ContentHompage extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <Container className="mt-2">
