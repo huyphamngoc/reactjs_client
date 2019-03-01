@@ -1,30 +1,28 @@
 import React, {Component} from 'react';
 import '../css/Content-homepage.css';
-import "antd/dist/antd.css";
-import {Row, Col} from 'antd';
-import {Container,} from 'react-bootstrap';
-import axios from "axios";
+import '../css/Content-Category.css';
 
-class ContentHompage extends Component {
-    constructor(props) {
+import "antd/dist/antd.css";
+import axios from "axios";
+import {Col, Row} from "antd";
+import {Container} from "react-bootstrap";
+
+class ContentCaegoty extends Component{
+    constructor(props){
         super(props);
         this.state = {
-            news: [],
-            hasMore: true,
-            loading: false,
-            api: "https://nalvnsmartnews.herokuapp.com/api/news"
-        };
+            news :[]
+        }
     }
 
     getNews = () => {
-        axios.get(this.state.api)
+        axios.get(`https://nalvnsmartnews.herokuapp.com/api/category/news/${this.props.match.params.userId}`)
             .then((response) => {
-
-                const getNews = response.data.data.data;
-                // console.log(getNews);
+                const getCategory = response.data.data.data;
                 this.setState({
-                    news: getNews
+                    news:getCategory
                 })
+                console.log(this.state.news);
             })
             .catch(function (error) {
                 console.log(error);
@@ -67,34 +65,11 @@ class ContentHompage extends Component {
         });
     }
 
-    renderNewsRightFeature= ()=>{
-        return this.state.news.map((value, index) => {
-            return (
-                <li className="list-group-item">
-                    <Row>
-                        <Col lg={9} className=" pr-lg-1">
-                            <a href="#"><img className="img-fluid"
-                                src={value.img}
-                                alt=""/>
-                            </a>
-                        </Col>
-
-                        <Col lg={13}>
-                            <h4 className="title-text-item-content-fl">
-                                <a href="#">{value.title}</a>
-                            </h4>
-                        </Col>
-                    </Row>
-                </li>
-            );
-        });
-    }
-
     renderNewsTopHotFeature = () => {
         if (this.state.news.length == 0) {
             console.log(this.state.news)
         } else
-            {
+        {
             console.log(this.state.news[0].title)
             return(
                 <div>
@@ -134,8 +109,7 @@ class ContentHompage extends Component {
     }
 
     render() {
-
-        return (
+        return(
             <div>
                 <Container className="mt-2">
                     <Row>
@@ -160,17 +134,20 @@ class ContentHompage extends Component {
 
                         <Col lg={8} className="featured-banner-hot-top-fr pr-lg-0">
                             <Row>
-                                <ul className="list-group list-group-flush">
-                                    {this.renderNewsRightFeature()}
-                                </ul>
+                                <Col lg={24} className="ml-lg-4 banner-right">
+                                    <a href="#">
+                                        <iframe className="img-benner-right"
+                                             src="http://adi.admicro.vn/adt/cpc/cpm7k/html/upload/2019/02/samsung/samsung_300_600_left.html?url=%2F%2Flg1.logging.admicro.vn%2Fcpx%3Fdmn%3Dhttp%253A%252F%252Fkenh14.vn%252Fstar.chn%26lsn%3D1551405020166%26ce%3D1%26lc%3D4%26cr%3D1545484963%26ui%3D5245484963250132679%26cmpg%3D1297332%26items%3D548909%26zid%3D13079%26cid%3D-1%26tp%3D8%26tpn%3D5%26cov%3D1%26re%3Dhttps%253A%252F%252Fbs.serving-sys.com%252Fserving%252FadServer.bs%253Fcn%253Dtrd%2526mc%253Dclick%2526pli%253D27524007%2526PluID%253D0%2526ord%253D0.70145961159529&admid=cpmzone_13079_0_548909"
+                                             alt=""/>
+                                    </a>
+                                </Col>
                             </Row>
-
                             <Row>
                                 <Col lg={24} className="ml-lg-4 banner-right">
                                     <a href="#">
-                                        <img className="img-fluid"
-                                             src="https://res.cloudinary.com/aptech-fpt/image/upload/v1550772078/banner_hcm_02-min.png"
-                                             alt=""/>
+                                        <iframe style={{height:258}} className="img-fluid"
+                                                src="https://adi.admicro.vn/adt/banners/nam2015/4043/min_html5/dungvuanh/2019_01_28/300X250(1)/300X250/300X250.html?url=%2F%2Flg1.logging.admicro.vn%2Fadn%3Fdmn%3Dhttp%253A%252F%252Fkenh14.vn%252Fstar.chn%26lsn%3D1551407726100%26ce%3D1%26lc%3D4%26cr%3D1545484963%26ui%3D5245484963250132679%26bi%3D0%26cmpg%3D36349%26items%3D132787%26zid%3D27032%26pr%3D13307224913%26cid%3D-1%26tp%3D12%26tpn%3D4%26adc_cpa%3D1%26cov%3D1%26re%3Dhttps%253A%252F%252Fadsgame.soha.vn%252Fservice%252Fservice%252Ftrack%253Futm_campaign%253DLDBN_ADXPC%2526utm_source%253DLDBN_ADXPC%2526redirected%253Dhttps%25253A%25252F%25252Flongdobanghiep.vn%25252Ftop1&admid=adnzone_27032_0_132787"
+                                                alt=""/>
                                     </a>
                                 </Col>
                             </Row>
@@ -181,5 +158,4 @@ class ContentHompage extends Component {
         );
     }
 }
-
-export default ContentHompage;
+export default ContentCaegoty;
