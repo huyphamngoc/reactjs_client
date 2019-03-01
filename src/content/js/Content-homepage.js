@@ -12,7 +12,7 @@ class ContentHompage extends Component {
             news: [],
             hasMore: true,
             loading: false,
-            api: "https://nalvnsmartnews.herokuapp.com/api/news"
+            api: "https://smartnews.nal.vn/api/news"
         };
     }
 

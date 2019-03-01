@@ -16,7 +16,7 @@ class ContentCaegoty extends Component{
     }
 
     getNews = () => {
-        axios.get(`https://nalvnsmartnews.herokuapp.com/api/category/news/${this.props.match.params.userId}`)
+        axios.get(`https://smartnews.nal.vn/api/category/news/${this.props.match.params.userId}`)
             .then((response) => {
                 const getCategory = response.data.data.data;
                 this.setState({
