@@ -136,8 +136,8 @@ class ContentCaegoty extends Component{
                             <Row>
                                 <Col lg={24} className="ml-lg-4 banner-right">
                                     <a href="#">
-                                        <iframe className="img-benner-right"
-                                             src="http://adi.admicro.vn/adt/cpc/cpm7k/html/upload/2019/02/samsung/samsung_300_600_left.html?url=%2F%2Flg1.logging.admicro.vn%2Fcpx%3Fdmn%3Dhttp%253A%252F%252Fkenh14.vn%252Fstar.chn%26lsn%3D1551405020166%26ce%3D1%26lc%3D4%26cr%3D1545484963%26ui%3D5245484963250132679%26cmpg%3D1297332%26items%3D548909%26zid%3D13079%26cid%3D-1%26tp%3D8%26tpn%3D5%26cov%3D1%26re%3Dhttps%253A%252F%252Fbs.serving-sys.com%252Fserving%252FadServer.bs%253Fcn%253Dtrd%2526mc%253Dclick%2526pli%253D27524007%2526PluID%253D0%2526ord%253D0.70145961159529&admid=cpmzone_13079_0_548909"
+                                        <img className="img-fluid"
+                                             src="https://res.cloudinary.com/aptech-fpt/image/upload/v1551411295/quy11-adx5c18af1f522e8.jpg"
                                              alt=""/>
                                     </a>
                                 </Col>
