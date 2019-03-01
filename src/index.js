@@ -6,8 +6,13 @@ import './content/js/Content-homepage';
 import * as serviceWorker from './serviceWorker';
 import ContentHompage from "../src/content/js/Content-homepage.js";
 import LayoutHeader from "./layout/js/Layout-header";
+import App from "./App";
+import {Router, Route ,BrowserRouter} from "react-router-dom";
+import News from "./News";
 
-ReactDOM.render(< ContentHompage/>, document.getElementById('root'));
+ReactDOM.render(
+    <App/>
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

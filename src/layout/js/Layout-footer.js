@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import {Row,Col } from 'antd';
 import {Container, } from 'react-bootstrap';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 class LayoutFooter extends Component{
     constructor(props)
@@ -40,7 +41,7 @@ class LayoutFooter extends Component{
         return this.state.category.map((value, index) => {
             return (
                 <li className="nav-item item-list-menu-category-footer-pc pl-lg-0 pr-lg-0 pl-1 pr-1 ">
-                    <a className=" nav-link" href="#">{value.name}</a>
+                    <Link className=" nav-link" to={`/category/${value.id}`}>{value.name}</Link>
                 </li>
             );
         });

@@ -1,31 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 import "antd/dist/antd.css";
-import { Row,Col } from 'antd';
+import {Route, BrowserRouter, Switch} from "react-router-dom";
+import LayoutHeader from "./layout/js/Layout-header";
+import LayoutFooter from "./layout/js/Layout-footer";
+import ContentHompage from "./content/js/Content-homepage";
+import ContentCaegoty from "./content/js/Content-Category";
+
 
 class App extends Component {
-  render() {
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <div>
+                        <LayoutHeader/>
+                    </div>
 
-    return (
-      <div className="gutter-example">
-    <Row gutter={16}>
-      <Col  className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
-      </Col>
-    </Row>
-  </div>
-    );
-  }
+                    <div className="main-route-place">
+                        <Switch>
+                            <Route exact path="/" component={ContentHompage}/>
+                            <Route exact path="/category/:userId" render = {({match})=>(
+                                <ContentCaegoty match={match}/>)}/>
+                        </Switch>
+                    </div>
+
+                    <div>
+                        <LayoutFooter/>
+                    </div>
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
