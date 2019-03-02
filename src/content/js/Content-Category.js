@@ -166,6 +166,15 @@ class ContentCaegoty extends Component{
                                     </a>
                                 </Col>
                             </Row>
+                            <Row>
+                                <Col lg={24} className="ml-lg-4 banner-right">
+                                    <a href="#">
+                                        <iframe style={{height:604}} className="img-fluid"
+                                                src="https://res.cloudinary.com/aptech-fpt/image/upload/v1551495198/banner-vietpro-tet.gif"
+                                        alt=""/>
+                                    </a>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </Container>
