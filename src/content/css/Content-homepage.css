@@ -81,11 +81,11 @@ body{
     font-weight: bold;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .categoty-item-content-fl a{
-    font-size: 12px;
+    font-size: 15px;
     color: #41455e;
     text-decoration: none;
     font-weight: bold;
@@ -100,7 +100,7 @@ body{
 @media only screen and (max-width: 768px) {
     /*content*/
     .title-news-hot-top-fl a{
-        font-size: 19px;
+        font-size: 21px;
     }
 
     .title-news-content-fl a{

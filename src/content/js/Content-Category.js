@@ -1,28 +1,29 @@
 import React, {Component} from 'react';
 import '../css/Content-homepage.css';
 import '../css/Content-Category.css';
-
 import "antd/dist/antd.css";
 import axios from "axios";
 import {Col, Row} from "antd";
 import {Container} from "react-bootstrap";
+import {Link} from "react-router-dom";
+
 
 class ContentCaegoty extends Component{
     constructor(props){
         super(props);
         this.state = {
-            news :[],
-            userId: undefined
+            categorys :[],
+            categoryId: undefined,
+            api:"https://nalvnsmartnews.herokuapp.com/api/category/news/"
         }
     }
 
-    getNews = () => {
-
-        axios.get(`https://smartnews.nal.vn/api/category/news/${this.state.userId}`)
+    getCategorys = () => {
+        axios.get( `${this.state.api}${this.state.categoryId}`)
             .then((response) => {
                 const getCategory = response.data.data.data;
                 this.setState({
-                        news:getCategory
+                    categorys:getCategory
                     })
             })
             .catch(function (error) {
@@ -30,11 +31,9 @@ class ContentCaegoty extends Component{
             });
     }
 
-
     getId = ()=>{
-        const haha = this.props.match.params.userId;
         this.setState({
-            userId : haha
+            categoryId :  this.props.match.params.categoryId
         })
     }
 
@@ -42,38 +41,37 @@ class ContentCaegoty extends Component{
         this.getId();
     }
     componentDidMount() {
-        this.getNews()
+        this.getCategorys()
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (nextProps.match.params.userId !== this.props.match.params.userId){
-            const currentProductId = nextProps.match.params.userId;
+        if (nextProps.match.params.categoryId !== this.props.match.params.categoryId){
             this.setState({
-                userId : currentProductId
+                categoryId : nextProps.match.params.categoryId
             })
-            this.forceUpdate(this.getNews)
+            this.forceUpdate(this.getCategorys)
         }
     }
 
     renderNewsLeftFeature = () => {
-        return this.state.news.map((value, index) => {
+        return this.state.categorys.map((value) => {
             return (
-                <li id="haha" className=" list-group-item">
+                <li id="haha" key={value.id} className=" list-group-item">
                     <Row>
-                        <Col lg={6} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <a href="#"><img className="huy123" src={value.img}
-                                             alt=""/></a>
+                        <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
+                            <Link to={`/news-detail/${value.id}`}><img className="huy123" src={value.img}
+                                             alt=""/></Link>
                         </Col>
 
-                        <Col lg={18} sm={16}>
+                        <Col lg={16} sm={16}>
 
                             <h4 className="title-text-item-content-fl">
-                                <a href="#">{value.title}</a>
+                                <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
                             </h4>
 
                             <div className="text-item-content-fl">
                                 <div className="categoty-item-content-fl mb-lg-1">
-                                    <a className="" href="#">{value.category_name}</a>
+                                    <Link to={`/news-detail/${value.id}`}>{value.category_name}</Link>
                                 </div>
                                 <span className="description-item-content-fl">
                                    {value.description}
@@ -88,16 +86,16 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopHotFeature = () => {
-        if (this.state.news.length !== 0) {
+        if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <a href="#">
+                    <Link to={`/news-detail/${this.state.categorys[5].id}`}>
                         <img className="img-news-hot-top-fl"
-                             src={this.state.news[5].img}
+                             src={this.state.categorys[5].img}
                         />
-                    </a>
+                    </Link>
                     <h3 className="title-news-hot-top-fl">
-                        <a href="#">{this.state.news[5].title}</a>
+                        <Link to={`/news-detail/${this.state.categorys[5].id}`}>{this.state.categorys[5].title}</Link>
                     </h3>
                 </div>
             );
@@ -105,18 +103,18 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopRightHotFeature = () => {
-        if (this.state.news.length !== 0) {
+        if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <a href="#">
+                    <Link to={`/news-detail/${this.state.categorys[6].id}`}>
                         <img className="hehe"
-                             src={this.state.news[6].img}
+                             src={this.state.categorys[6].img}
                              alt="#"/>
-                    </a>
+                    </Link>
                     <h3 className="title-news-hot-top-fr">
-                        <a href="#">
-                            {this.state.news[6].title}
-                        </a>
+                        <Link to={`/news-detail/${this.state.categorys[6].id}`}>
+                            {this.state.categorys[6].title}
+                        </Link>
                     </h3>
                 </div>
             );
@@ -143,6 +141,7 @@ class ContentCaegoty extends Component{
                             <Row className=" mt-2">
                                 <ul className="list-group list-group-flush">
                                     {this.renderNewsLeftFeature()}
+                                    {/*{this.hihi()}*/}
                                 </ul>
                             </Row>
                         </Col>
