@@ -24,10 +24,12 @@
     height: auto;
 }
 
-figure .image img{
+figure.image img{
     max-width: 100%;
     height: auto;
 }
+
+
 
 .pCaption, .PhotoCMS_Caption{
     font-size: 16px;

@@ -43,11 +43,11 @@ class ContentHompage extends Component {
                 <li id="haha" key={value.id} className="list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <Link to={`/news-detail/${value.id}`} ><img className="huy123" src={value.img}
+                            <Link to={`/news-detail/${value.id}`} ><img className="item-news" src={value.img}
                                              alt=""/></Link>
                         </Col>
 
-                        <Col lg={16} sm={16}>
+                        <Col lg={16} sm={16} xs={14}>
                             <h4 className="title-text-item-content-fl">
                                 <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
                             </h4>
@@ -107,6 +107,7 @@ class ContentHompage extends Component {
             )
         }
     }
+
     renderNewsTopRightHotFeature = () => {
         const hotNewHomepage2 = this.state.news[this.state.news.length -2];
         if (this.state.news.length !== 0) {
