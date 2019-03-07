@@ -112,9 +112,9 @@ class ContentDetail extends Component {
                 <li className="list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <a href={`/news-detail/${value.id}`}><img className="huy123"
+                            <Link to={`/news-detail/${value.id}`}><img className="huy123"
                                              src={value.img}
-                                             alt=""/></a>
+                                             alt=""/></Link>
                         </Col>
                         <Col lg={16} sm={16}>
                             <h4 className="title-text-item-content-fl">
