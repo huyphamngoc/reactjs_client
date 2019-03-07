@@ -4,8 +4,8 @@ import "../css/Content-Detail.css"
 import axios from "axios";
 import {Col, Row} from "antd";
 import {Container} from "react-bootstrap";
-import html from 'react-inner-html';
 import {Link} from "react-router-dom";
+import html from 'react-inner-html';
 
 class ContentDetail extends Component {
     constructor(props) {
