@@ -4,37 +4,85 @@ import '../css/Content-Category.css';
 
 import "antd/dist/antd.css";
 import axios from "axios";
-import {Col, Row} from "antd";
+import {Col, Row, message} from "antd";
 import {Container} from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 class ContentCaegoty extends Component{
     constructor(props){
         super(props);
         this.state = {
             news :[],
-            userId: undefined
+            userId: undefined,
+            api: '',
+            hasMore: true,
+            loading: false
         }
     }
 
     getNews = () => {
+        let url = '';
+        if(this.state.api === ''){
+            url = `https://nalvnsmartnews.herokuapp.com/api/category/news/${this.state.userId}`;
+        } else {
+            url = this.state.api
+        }
 
-        axios.get(`https://smartnews.nal.vn/api/category/news/${this.state.userId}`)
-            .then((response) => {
-                const getCategory = response.data.data.data;
-                this.setState({
-                        news:getCategory
-                    })
-            })
-            .catch(function (error) {
-                console.log(error);
+        if(!this.state.loading){
+        
+            // Set loading state to true to
+            // avoid multiple requests on scroll
+            this.setState({
+                loading : true,
             });
+        
+            // make XHR request
+            axios.get(url)
+                .then((response) => {
+                    const paginator = response.data.data,
+                        news = paginator.data;
+        
+                    if(news.length){
+                        // add new 
+                        this.setState({
+                            news : [...this.state.news , ...news],
+                            api : paginator.next_page_url,
+                            loading: false,
+                        });
+                    }
+                    
+                    // remove scroll event if next_page_url is null
+                    if (!paginator.next_page_url) {
+                      message.warning('Infinite List loaded all');
+                      this.setState({
+                        hasMore: false,
+                        loading: false,
+                      });
+                      return;
+                    }
+                });
+        }
+
+        // axios.get(`https://nalvnsmartnews.herokuapp.com/api/category/news/${this.state.userId}`)
+        //     .then((response) => {
+        //         const getCategory = response.data.data.data;
+        //         this.setState({
+        //                 news:getCategory
+        //             })
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     }
 
 
     getId = ()=>{
+        console.log(this.props);
         const haha = this.props.match.params.userId;
         this.setState({
-            userId : haha
+            userId : haha,
+            api : '',
+            news :[],
         })
     }
 
@@ -49,7 +97,10 @@ class ContentCaegoty extends Component{
         if (nextProps.match.params.userId !== this.props.match.params.userId){
             const currentProductId = nextProps.match.params.userId;
             this.setState({
-                userId : currentProductId
+                userId : currentProductId,
+                news: [],
+                api: '',
+                hasMore: true,
             })
             this.forceUpdate(this.getNews)
         }
@@ -142,7 +193,17 @@ class ContentCaegoty extends Component{
 
                             <Row className=" mt-2">
                                 <ul className="list-group list-group-flush">
+
+                                    <InfiniteScroll
+                                    dataLength={this.state.news.length}
+                                    next={this.getNews}
+                                    hasMore={this.state.hasMore}
+                                      
+                                    loader={<div className="loader" key={0}>Loading ...</div>}
+                                    >
                                     {this.renderNewsLeftFeature()}
+                                    </InfiniteScroll>
+
                                 </ul>
                             </Row>
                         </Col>
