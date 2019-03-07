@@ -23,6 +23,10 @@ class ContentHompage extends Component {
                 this.setState({
                     news: getNews
                 })
+                 const hihi = getNews[getNews.length -5];
+                console.log(getNews)
+                console.log(hihi)
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -87,33 +91,35 @@ class ContentHompage extends Component {
     }
 
     renderNewsTopHotFeature = () => {
+            const hotNewHomepagel = this.state.news[this.state.news.length -1];
         if (this.state.news.length !== 0) {
             return (
                 <div>
-                    <Link to={`/news-detail/${this.state.news[5].id}`}>
+                    <Link to={`/news-detail/${hotNewHomepagel.id}`}>
                         <img className="img-news-hot-top-fl"
-                             src={this.state.news[5].img}
+                             src={hotNewHomepagel.img}
                         />
                     </Link>
                     <h3 className="title-news-hot-top-fl">
-                        <Link to={`/news-detail/${this.state.news[5].id}`}>{this.state.news[5].title}</Link>
+                        <Link to={`/news-detail/${hotNewHomepagel.id}`}>{hotNewHomepagel.title}</Link>
                     </h3>
                 </div>
             )
         }
     }
     renderNewsTopRightHotFeature = () => {
+        const hotNewHomepage2 = this.state.news[this.state.news.length -2];
         if (this.state.news.length !== 0) {
             return(
                 <div>
-                    <Link to={`/news-detail/${this.state.news[6].id}`}>
+                    <Link to={`/news-detail/${hotNewHomepage2.id}`}>
                         <img className="hehe"
-                             src={this.state.news[6].img}
+                             src={hotNewHomepage2.img}
                              alt="#"/>
                     </Link>
                     <h3 className="title-news-hot-top-fr">
-                        <Link to={`/news-detail/${this.state.news[6].id}`}>
-                            {this.state.news[6].title}
+                        <Link to={`/news-detail/${hotNewHomepage2.id}`}>
+                            {hotNewHomepage2.title}
                         </Link>
                     </h3>
                 </div>

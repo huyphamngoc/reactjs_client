@@ -86,16 +86,18 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopHotFeature = () => {
+        const hotNewCategory1 = this.state.categorys[this.state.categorys.length -4];
+
         if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <Link to={`/news-detail/${this.state.categorys[5].id}`}>
+                    <Link to={`/news-detail/${hotNewCategory1.id}`}>
                         <img className="img-news-hot-top-fl"
-                             src={this.state.categorys[5].img}
+                             src={hotNewCategory1.img}
                         />
                     </Link>
                     <h3 className="title-news-hot-top-fl">
-                        <Link to={`/news-detail/${this.state.categorys[5].id}`}>{this.state.categorys[5].title}</Link>
+                        <Link to={`/news-detail/${hotNewCategory1.id}`}>{hotNewCategory1.title}</Link>
                     </h3>
                 </div>
             );
@@ -103,17 +105,18 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopRightHotFeature = () => {
+        const hotNewCategory2 = this.state.categorys[this.state.categorys.length -3];
         if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <Link to={`/news-detail/${this.state.categorys[6].id}`}>
+                    <Link to={`/news-detail/${hotNewCategory2.id}`}>
                         <img className="hehe"
-                             src={this.state.categorys[6].img}
+                             src={hotNewCategory2.img}
                              alt="#"/>
                     </Link>
                     <h3 className="title-news-hot-top-fr">
-                        <Link to={`/news-detail/${this.state.categorys[6].id}`}>
-                            {this.state.categorys[6].title}
+                        <Link to={`/news-detail/${hotNewCategory2.id}`}>
+                            {hotNewCategory2.title}
                         </Link>
                     </h3>
                 </div>

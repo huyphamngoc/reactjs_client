@@ -17,7 +17,6 @@ class ContentDetail extends Component {
             categorys: [],
             categoryId: undefined,
             apiCategory: "https://nalvnsmartnews.herokuapp.com/api/category/news/",
-
         }
     }
 
@@ -31,11 +30,13 @@ class ContentDetail extends Component {
         axios.get(`${this.state.api}${this.state.newsId}`)
             .then((response) => {
                 const getNews = response.data.data;
-                const lol = response.data.data.category_id;
+                const getCategorys = response.data.data.category_id;
                 this.setState({
                     news: getNews,
-                    categoryId: lol
-                }, this.getCategorys)
+                    categoryId: getCategorys
+                }, this.getCategorys,
+                    this.topFunction(),
+                    )
             })
             .catch(function (error) {
                 console.log(error);
@@ -69,7 +70,7 @@ class ContentDetail extends Component {
                 newsId : nextProps.match.params.newsId
             })
             this.forceUpdate(this.getNews)
-            // console.log(nextProps.match.params.newsId)
+
         } else {
             console.log("not update")
         }
@@ -121,9 +122,9 @@ class ContentDetail extends Component {
                             </h4>
 
                             <div className="text-item-content-fl">
-                                <div className="categoty-item-content-fl mb-lg-1">
-                                    <Link to={`/news-detail/${value.id}`}>huhu</Link>
-                                </div>
+                                {/*<div className="categoty-item-content-fl mb-lg-1">*/}
+                                    {/*<Link to={`//category/${value.id}`}>{value.id}</Link>*/}
+                                {/*</div>*/}
                                 <span className="description-item-content-fl">
                                     {value.description}
                                 </span>
@@ -133,6 +134,11 @@ class ContentDetail extends Component {
                 </li>
             );
         });
+    }
+
+    topFunction=()=> {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 
     render() {
@@ -164,11 +170,6 @@ class ContentDetail extends Component {
                                         </div>
                                     </Col>
                                 </Row>
-                                {/*<Row>*/}
-                                    {/*<Col>*/}
-                                        {/*{this.renderCategoryNews()}*/}
-                                    {/*</Col>*/}
-                                {/*</Row>*/}
                             </Col>
                         </Row>
                     </div>

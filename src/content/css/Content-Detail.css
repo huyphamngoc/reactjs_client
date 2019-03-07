@@ -1,5 +1,4 @@
 
-
 .text-title-content-detail{
     letter-spacing: -0.5px;
     font-size: 24px;
@@ -21,7 +20,7 @@
 }
 
 .pic img{
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -53,8 +52,6 @@ figure .image img{
     border-left: 4px solid #ff6d15;
     padding-left: 10px;
 }
-
-
 
 @media only screen and (min-width: 768px) {
     .img-news-detail{
