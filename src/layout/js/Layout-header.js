@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import '../css/Layout-header.css';
 import "antd/dist/antd.css";
 import {Row,Col } from 'antd';
-import { Navbar,Form,Button,FormControl, Container} from 'react-bootstrap';
+import { Modal, Navbar,Form,Button,FormControl, Container} from 'react-bootstrap';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import Login_Register from './Login-Register';
 
 
 class LayoutHeader extends Component {
@@ -15,7 +16,16 @@ class LayoutHeader extends Component {
             category: [],
             hasMore: true,
             loading: false,
-            api: "https://nalvnsmartnews.herokuapp.com/api/category"
+            api: "https://nalvnsmartnews.herokuapp.com/api/category",
+            show: false,
+        };
+
+        this.handleShow = () => {
+              this.setState({ show: true });
+            };
+
+        this.handleHide = () => {
+          this.setState({ show: false });
         };
 
     }
@@ -69,6 +79,23 @@ class LayoutHeader extends Component {
         return (
             <div>
                 <div className="layout-top-master-sm">
+                    <Modal
+                      show={this.state.show}
+                      onHide={this.handleHide}
+                      dialogClassName="modal-90w"
+                      aria-labelledby="example-custom-modal-styling-title"
+                    >
+                      
+                      <Modal.Body>
+                        <Login_Register style={{width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignCtems: 'center',
+    flexDirection: 'column',}}/>
+                      </Modal.Body>
+                    </Modal>
+
                     <Navbar bg="light" expand="lg">
                         <Navbar.Brand id="logo-header-sm" href="#home">
                             <Link to={`/`}>
@@ -130,7 +157,7 @@ class LayoutHeader extends Component {
                                                 <li className=" nav-item">
                                                     <a className="nav-link" href="#">
                                                         <i id="login-pc-right"
-                                                           className="p-2 text-dark far fa-user">
+                                                           className="p-2 text-dark far fa-user" onClick={this.handleShow}>
                                                         </i>
                                                     </a>
                                                 </li>
