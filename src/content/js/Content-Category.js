@@ -14,7 +14,7 @@ class ContentCaegoty extends Component{
         this.state = {
             categorys :[],
             categoryId: undefined,
-            api:"https://nalvnsmartnews.herokuapp.com/api/category/news/"
+            api:"https://smartnews.nal.vn/api/category/news/"
         }
     }
 

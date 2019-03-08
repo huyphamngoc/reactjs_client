@@ -13,10 +13,10 @@ class ContentDetail extends Component {
         this.state = {
             news: [],
             newsId: undefined,
-            api: "https://nalvnsmartnews.herokuapp.com/api/news/",
+            api: "https://smartnews.nal.vn/api/news/",
             categorys: [],
             categoryId: undefined,
-            apiCategory: "https://nalvnsmartnews.herokuapp.com/api/category/news/",
+            apiCategory: "https://smartnews.nal.vn/api/category/news/",
         }
     }
 

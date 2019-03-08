@@ -12,7 +12,8 @@ class ContentHompage extends Component {
         super(props);
         this.state = {
             news: [],
-            api: "https://nalvnsmartnews.herokuapp.com/api/news"
+            api: "https://smartnews.nal.vn/api/news"
+            //https://smartnews.nal.vn/api/news
         };
     }
 
@@ -23,10 +24,6 @@ class ContentHompage extends Component {
                 this.setState({
                     news: getNews
                 })
-                 const hihi = getNews[getNews.length -5];
-                console.log(getNews)
-                console.log(hihi)
-
             })
             .catch(function (error) {
                 console.log(error);
