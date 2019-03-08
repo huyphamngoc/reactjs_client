@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/Content-homepage.css';
 import "antd/dist/antd.css";
-import {Row, Col} from 'antd';
+import {Row, Col,BackTop} from 'antd';
 import {Container,} from 'react-bootstrap';
 import axios from "axios";
 import {Link} from "react-router-dom";
@@ -128,6 +128,7 @@ class ContentHompage extends Component {
     render() {
         return (
             <div>
+                <BackTop />
                 <Container className="mt-2">
                     <Row>
                         <Col lg={16} className="featured-news">
