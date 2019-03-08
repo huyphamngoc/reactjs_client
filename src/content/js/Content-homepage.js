@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/Content-homepage.css';
 import "antd/dist/antd.css";
-import {Row, message, Col} from 'antd';
+import {BackTop, Row, message, Col} from 'antd';
 import {Container,} from 'react-bootstrap';
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -21,6 +21,7 @@ class ContentHompage extends Component {
     }
 
     getNews = () => {
+
         if(!this.state.loading){
         
             // Set loading state to true to
@@ -169,6 +170,7 @@ class ContentHompage extends Component {
     render() {
         return (
             <div>
+                <BackTop />
                 <Container className="mt-2">
                     <Row>
                         <Col lg={16} className="featured-news">
