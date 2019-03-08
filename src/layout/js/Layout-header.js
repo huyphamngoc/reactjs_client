@@ -48,11 +48,11 @@ class LayoutHeader extends Component {
     }
 
     renderCategorySm =()=> {
-        return this.state.category.map((value, index) => {
+        return this.state.category.map((value) => {
             return (
                 <Col xs={12} sm={12} md={6} >
                     <li className="nav-item  item-category-menu-sm">
-                        <Link className="nav-link text-decoration-none" to={`/category/${value.id}`}
+                        <Link className="nav-link text-decoration-none" key={value.id} to={`/category/${value.id}`}
                         >
                             {value.name}
                         </Link>
@@ -63,10 +63,10 @@ class LayoutHeader extends Component {
     }
 
     renderCategoryPC =()=> {
-        return this.state.category.map((value, index) => {
+        return this.state.category.map((value) => {
             return (
                 <li className="nav-item item-list-menu-category-pc pl-1 pr-1">
-                    <Link className="nav-link text-white" to={`/category/${value.id}`}
+                    <Link className="nav-link text-white" key={value.id} to={`/category/${value.id}`}
                          >
                         {value.name}
                     </Link>

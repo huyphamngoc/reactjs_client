@@ -1,29 +1,29 @@
 import React, {Component} from 'react';
 import '../css/Content-homepage.css';
 import '../css/Content-Category.css';
-
 import "antd/dist/antd.css";
 import axios from "axios";
 import {Col, Row, message} from "antd";
 import {Container} from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
+import {Link} from "react-router-dom";
 
 class ContentCaegoty extends Component{
     constructor(props){
         super(props);
         this.state = {
-            news :[],
-            userId: undefined,
+            categorys :[],
+            categoryId: undefined,
             api: '',
             hasMore: true,
             loading: false
         }
     }
 
-    getNews = () => {
+    getCategorys = () => {
         let url = '';
         if(this.state.api === ''){
-            url = `https://nalvnsmartnews.herokuapp.com/api/category/news/${this.state.userId}`;
+            url = `https://smartnews.nal.vn/api/category/news/${this.state.categoryId}`;
         } else {
             url = this.state.api
         }
@@ -41,15 +41,17 @@ class ContentCaegoty extends Component{
                 .then((response) => {
                     const paginator = response.data.data,
                         news = paginator.data;
-        
+                        console.log(paginator);
                     if(news.length){
                         // add new 
                         this.setState({
-                            news : [...this.state.news , ...news],
+                            categorys : [...this.state.categorys , ...news],
                             api : paginator.next_page_url,
                             loading: false,
                         });
                     }
+
+                    console.log(this.state.api);
                     
                     // remove scroll event if next_page_url is null
                     if (!paginator.next_page_url) {
@@ -62,27 +64,16 @@ class ContentCaegoty extends Component{
                     }
                 });
         }
-
-        // axios.get(`https://nalvnsmartnews.herokuapp.com/api/category/news/${this.state.userId}`)
-        //     .then((response) => {
-        //         const getCategory = response.data.data.data;
-        //         this.setState({
-        //                 news:getCategory
-        //             })
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
     }
-
 
     getId = ()=>{
         console.log(this.props);
-        const haha = this.props.match.params.userId;
+        const haha = this.props.match.params.categoryId;
         this.setState({
-            userId : haha,
+            categoryId : this.props.match.params.categoryId,
             api : '',
-            news :[],
+            categorys :[],
+
         })
     }
 
@@ -90,41 +81,40 @@ class ContentCaegoty extends Component{
         this.getId();
     }
     componentDidMount() {
-        this.getNews()
+        this.getCategorys()
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (nextProps.match.params.userId !== this.props.match.params.userId){
-            const currentProductId = nextProps.match.params.userId;
+        if (nextProps.match.params.categoryId !== this.props.match.params.categoryId){
             this.setState({
-                userId : currentProductId,
-                news: [],
+                categoryId : nextProps.match.params.categoryId,
+                categorys: [],
                 api: '',
                 hasMore: true,
             })
-            this.forceUpdate(this.getNews)
+            this.forceUpdate(this.getCategorys)
         }
     }
 
     renderNewsLeftFeature = () => {
-        return this.state.news.map((value, index) => {
+        return this.state.categorys.map((value) => {
             return (
-                <li id="haha" className=" list-group-item">
+                <li id="haha" key={value.id} className=" list-group-item">
                     <Row>
-                        <Col lg={6} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <a href="#"><img className="huy123" src={value.img}
-                                             alt=""/></a>
+                        <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
+                            <Link to={`/news-detail/${value.id}`}><img className="item-news" src={value.img}
+                                             alt=""/></Link>
                         </Col>
 
-                        <Col lg={18} sm={16}>
+                        <Col lg={16} sm={16} xs={14}>
 
                             <h4 className="title-text-item-content-fl">
-                                <a href="#">{value.title}</a>
+                                <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
                             </h4>
 
                             <div className="text-item-content-fl">
                                 <div className="categoty-item-content-fl mb-lg-1">
-                                    <a className="" href="#">{value.category_name}</a>
+                                    <Link to={`/news-detail/${value.id}`}>{value.category_name}</Link>
                                 </div>
                                 <span className="description-item-content-fl">
                                    {value.description}
@@ -139,16 +129,18 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopHotFeature = () => {
-        if (this.state.news.length !== 0) {
+        const hotNewCategory1 = this.state.categorys[this.state.categorys.length -4];
+
+        if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <a href="#">
+                    <Link to={`/news-detail/${hotNewCategory1.id}`}>
                         <img className="img-news-hot-top-fl"
-                             src={this.state.news[5].img}
+                             src={hotNewCategory1.img}
                         />
-                    </a>
+                    </Link>
                     <h3 className="title-news-hot-top-fl">
-                        <a href="#">{this.state.news[5].title}</a>
+                        <Link to={`/news-detail/${hotNewCategory1.id}`}>{hotNewCategory1.title}</Link>
                     </h3>
                 </div>
             );
@@ -156,18 +148,19 @@ class ContentCaegoty extends Component{
     }
 
     renderNewsTopRightHotFeature = () => {
-        if (this.state.news.length !== 0) {
+        const hotNewCategory2 = this.state.categorys[this.state.categorys.length -3];
+        if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <a href="#">
+                    <Link to={`/news-detail/${hotNewCategory2.id}`}>
                         <img className="hehe"
-                             src={this.state.news[6].img}
+                             src={hotNewCategory2.img}
                              alt="#"/>
-                    </a>
+                    </Link>
                     <h3 className="title-news-hot-top-fr">
-                        <a href="#">
-                            {this.state.news[6].title}
-                        </a>
+                        <Link to={`/news-detail/${hotNewCategory2.id}`}>
+                            {hotNewCategory2.title}
+                        </Link>
                     </h3>
                 </div>
             );
@@ -195,13 +188,14 @@ class ContentCaegoty extends Component{
                                 <ul className="list-group list-group-flush">
 
                                     <InfiniteScroll
-                                    dataLength={this.state.news.length}
-                                    next={this.getNews}
+                                    dataLength={this.state.categorys.length}
+                                    next={this.getCategorys}
                                     hasMore={this.state.hasMore}
                                       
                                     loader={<div className="loader" key={0}>Loading ...</div>}
                                     >
                                     {this.renderNewsLeftFeature()}
+
                                     </InfiniteScroll>
 
                                 </ul>
