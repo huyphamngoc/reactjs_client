@@ -4,9 +4,7 @@ import './index.css';
 import '../src/content/css/Content-homepage.css';
 import './content/js/Content-homepage';
 import * as serviceWorker from './serviceWorker';
-import ContentDetail from "./content/js/Content-Detail";
 import App from "./App";
-import LayoutProfile from "./profile-user/js/Layout-profile";
 
 ReactDOM.render(
     <App/>

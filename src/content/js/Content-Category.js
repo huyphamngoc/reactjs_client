@@ -67,13 +67,10 @@ class ContentCaegoty extends Component{
     }
 
     getId = ()=>{
-        console.log(this.props);
-        const haha = this.props.match.params.categoryId;
         this.setState({
             categoryId : this.props.match.params.categoryId,
             api : '',
             categorys :[],
-
         })
     }
 
@@ -136,7 +133,7 @@ class ContentCaegoty extends Component{
                 <div>
                     <Link to={`/news-detail/${hotNewCategory1.id}`}>
                         <img className="img-news-hot-top-fl"
-                             src={hotNewCategory1.img}
+                             src={hotNewCategory1.img } alt=""
                         />
                     </Link>
                     <h3 className="title-news-hot-top-fl">
@@ -192,13 +189,10 @@ class ContentCaegoty extends Component{
                                     dataLength={this.state.categorys.length}
                                     next={this.getCategorys}
                                     hasMore={this.state.hasMore}
-                                      
                                     loader={<div className="loader" key={0}>Loading ...</div>}
                                     >
                                     {this.renderNewsLeftFeature()}
-
                                     </InfiniteScroll>
-
                                 </ul>
                             </Row>
                         </Col>
