@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import '../css/Content-homepage.css';
 import "antd/dist/antd.css";
-import {Row, Col,BackTop} from 'antd';
+import {BackTop, Row, message, Col} from 'antd';
 import {Container,} from 'react-bootstrap';
 import axios from "axios";
+import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
+
 
 
 class ContentHompage extends Component {
@@ -12,22 +14,62 @@ class ContentHompage extends Component {
         super(props);
         this.state = {
             news: [],
-            api: "https://smartnews.nal.vn/api/news"
-            //https://smartnews.nal.vn/api/news
+            api: "https://smartnews.nal.vn/api/news",
+            hasMore: true,
+            loading: false
         };
     }
 
     getNews = () => {
-        axios.get(this.state.api)
-            .then((response) => {
-                const getNews = response.data.data.data;
-                this.setState({
-                    news: getNews
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
+
+        if(!this.state.loading){
+        
+            // Set loading state to true to
+            // avoid multiple requests on scroll
+            this.setState({
+                loading : true,
             });
+        
+            // make XHR request
+            axios.get(this.state.api)
+                .then((response) => {
+
+                    const paginator = response.data.data,
+                        news = paginator.data;
+        
+                    if(news.length){
+                        // add new 
+                        this.setState({
+                            news : [...this.state.news , ...news],
+                            api : paginator.next_page_url,
+                            loading: false,
+                        });
+                        console.log(this.state.api);
+                    }
+                    
+                    // remove scroll event if next_page_url is null
+                    if (!paginator.next_page_url) {
+                      message.warning('Infinite List loaded all');
+                      this.setState({
+                        hasMore: false,
+                        loading: false,
+                      });
+                      return;
+                    }
+                });
+        }
+
+        // axios.get(this.state.api)
+        //     .then((response) => {
+        //         const getNews = response.data.data.data;
+        //          console.log(getNews);
+        //         this.setState({
+        //             news: getNews
+        //         })
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     }
 
     componentDidMount() {
@@ -145,7 +187,17 @@ class ContentHompage extends Component {
 
                             <Row className=" mt-2">
                                 <ul className="list-group list-group-flush">
+                                    <InfiniteScroll
+                                    dataLength={this.state.news.length}
+                                    next={this.getNews}
+                                    hasMore={this.state.hasMore}
+                                      
+                                    loader={<div className="loader" key={0}>Loading ...</div>}
+                                    >
                                     {this.renderNewsLeftFeature()}
+                                    </InfiniteScroll>
+                                    
+                                    
                                 </ul>
                             </Row>
                         </Col>
