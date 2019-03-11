@@ -6,6 +6,7 @@ import { Modal, Navbar,Form,Button,FormControl, Container} from 'react-bootstrap
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import Login_Register from './Login-Register';
+import Login_Logout from './Login_Logout';
 
 
 class LayoutHeader extends Component {
@@ -75,6 +76,7 @@ class LayoutHeader extends Component {
         });
     }
 
+
     render() {
         return (
             <div>
@@ -92,7 +94,7 @@ class LayoutHeader extends Component {
     display: 'flex',
     justifyContent: 'center',
     alignCtems: 'center',
-    flexDirection: 'column',}}/>
+    flexDirection: 'column',}} hide = {this.handleHide}/>
                       </Modal.Body>
                     </Modal>
 
@@ -156,9 +158,9 @@ class LayoutHeader extends Component {
                                             <ul className="nav justify-content-end">
                                                 <li className=" nav-item">
                                                     <a className="nav-link" href="#">
-                                                        <i id="login-pc-right"
-                                                           className="p-2 text-dark far fa-user" onClick={this.handleShow}>
-                                                        </i>
+                                                    <Login_Logout passedFunction={this.handleShow}/>
+
+                                                        
                                                     </a>
                                                 </li>
                                             </ul>

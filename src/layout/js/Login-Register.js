@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Login-Register.css';
+import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
 class Login_Register extends Component {
@@ -45,7 +46,7 @@ class Login_Register extends Component {
                 </div>
 
                 <div className="box-container">
-                  {this.state.isLoginOpen && <LoginBox/>}
+                  {this.state.isLoginOpen && <LoginBox hide = {this.props.hide}/>}
                   {this.state.isRegisterOpen && <RegisterBox/>}
                 </div>
             </div>
@@ -62,6 +63,7 @@ class LoginBox extends React.Component {
         errors: [],
         email: '',
         password: '',
+        redirectToReferrer: false,
     };
   }
 
@@ -131,6 +133,16 @@ class LoginBox extends React.Component {
             .then(res => {
               console.log(res);
               console.log(res.data);
+              let responseJson = {
+                name: 'ninh',
+                email: 'duongninh1@gmail.com',
+                userId: 1,
+                token: res.data.token
+              }
+              sessionStorage.setItem('userData',JSON.stringify(responseJson));
+              this.setState({redirectToReferrer: true});
+              this.props.hide();
+
             }).catch(error => {
               let err = error.response.data
               console.log(error.response.data.msg)
@@ -144,6 +156,14 @@ class LoginBox extends React.Component {
   }
 
   render() {
+    // if (this.state.redirectToReferrer) {
+    //   return (<Redirect to={'/user'}/>)
+    // }
+    
+    // if(sessionStorage.getItem('userData')){
+    //   return (<Redirect to={'/'}/>)
+    // }
+
     //NULL by default (help us check when rendering)
        let 
          passwordErr = null,

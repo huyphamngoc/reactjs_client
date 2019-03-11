@@ -6,7 +6,8 @@ import LayoutFooter from "./layout/js/Layout-footer";
 import ContentHompage from "./content/js/Content-homepage";
 import ContentCaegoty from "./content/js/Content-Category";
 import ContentDetail from "./content/js/Content-Detail";
-
+import UserDetail from "./content/js/UserDetail";
+import UserPost from "./content/js/UserPost";
 
 class App extends Component {
     render() {
@@ -22,6 +23,8 @@ class App extends Component {
                             <Route exact path="/" component={ContentHompage}/>
                             <Route exact path="/category/:categoryId" component={ContentCaegoty}/>
                             <Route exac path="/news-detail/:newsId" render = {props => <ContentDetail {...props} />}/>
+                            <Route exact path="/user" component={UserDetail}/>
+                            <Route exact path="/user/post" component={UserPost}/>
                         </Switch>
                     </div>
 
