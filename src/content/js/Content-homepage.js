@@ -8,7 +8,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
 
 
-
 class ContentHompage extends Component {
     constructor(props) {
         super(props);
@@ -22,54 +21,42 @@ class ContentHompage extends Component {
 
     getNews = () => {
 
-        if(!this.state.loading){
-        
+        if (!this.state.loading) {
+
             // Set loading state to true to
             // avoid multiple requests on scroll
             this.setState({
-                loading : true,
+                loading: true,
             });
-        
+
             // make XHR request
             axios.get(this.state.api)
                 .then((response) => {
 
                     const paginator = response.data.data,
                         news = paginator.data;
-        
-                    if(news.length){
+
+                    if (news.length) {
                         // add new 
                         this.setState({
-                            news : [...this.state.news , ...news],
-                            api : paginator.next_page_url,
+                            news: [...this.state.news, ...news],
+                            api: paginator.next_page_url,
                             loading: false,
                         });
                         console.log(this.state.api);
                     }
-                    
+
                     // remove scroll event if next_page_url is null
                     if (!paginator.next_page_url) {
-                      message.warning('Infinite List loaded all');
-                      this.setState({
-                        hasMore: false,
-                        loading: false,
-                      });
-                      return;
+                        message.warning('Infinite List loaded all');
+                        this.setState({
+                            hasMore: false,
+                            loading: false,
+                        });
+                        return;
                     }
                 });
         }
-
-        // axios.get(this.state.api)
-        //     .then((response) => {
-        //         const getNews = response.data.data.data;
-        //          console.log(getNews);
-        //         this.setState({
-        //             news: getNews
-        //         })
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
     }
 
     componentDidMount() {
@@ -82,8 +69,8 @@ class ContentHompage extends Component {
                 <li id="haha" key={value.id} className="list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <Link to={`/news-detail/${value.id}`} ><img className="item-news" src={value.img}
-                                             alt=""/></Link>
+                            <Link to={`/news-detail/${value.id}`}><img className="item-news" src={value.img}
+                                                                       alt=""/></Link>
                         </Col>
 
                         <Col lg={16} sm={16} xs={14}>
@@ -106,15 +93,15 @@ class ContentHompage extends Component {
         });
     }
 
-    renderNewsRightFeature= ()=>{
+    renderNewsRightFeature = () => {
         return this.state.news.map((value) => {
             return (
                 <li key={value.id} className="list-group-item">
                     <Row>
                         <Col lg={9} className=" pr-lg-1">
                             <Link to={`/news-detail/${value.id}`}><img className="img-fluid"
-                                src={value.img}
-                                alt=""/>
+                                                                       src={value.img}
+                                                                       alt=""/>
                             </Link>
                         </Col>
 
@@ -130,14 +117,13 @@ class ContentHompage extends Component {
     }
 
     renderNewsTopHotFeature = () => {
-            const hotNewHomepagel = this.state.news[this.state.news.length -1];
+        const hotNewHomepagel = this.state.news[this.state.news.length - 1];
         if (this.state.news.length !== 0) {
             return (
                 <div>
                     <Link to={`/news-detail/${hotNewHomepagel.id}`}>
                         <img className="img-news-hot-top-fl"
-                             src={hotNewHomepagel.img}
-                        />
+                             src={hotNewHomepagel.img} alt=""/>
                     </Link>
                     <h3 className="title-news-hot-top-fl">
                         <Link to={`/news-detail/${hotNewHomepagel.id}`}>{hotNewHomepagel.title}</Link>
@@ -148,9 +134,9 @@ class ContentHompage extends Component {
     }
 
     renderNewsTopRightHotFeature = () => {
-        const hotNewHomepage2 = this.state.news[this.state.news.length -2];
+        const hotNewHomepage2 = this.state.news[this.state.news.length - 2];
         if (this.state.news.length !== 0) {
-            return(
+            return (
                 <div>
                     <Link to={`/news-detail/${hotNewHomepage2.id}`}>
                         <img className="hehe"
@@ -170,7 +156,7 @@ class ContentHompage extends Component {
     render() {
         return (
             <div>
-                <BackTop />
+                <BackTop/>
                 <Container className="mt-2">
                     <Row>
                         <Col lg={16} className="featured-news">
@@ -188,16 +174,13 @@ class ContentHompage extends Component {
                             <Row className=" mt-2">
                                 <ul className="list-group list-group-flush">
                                     <InfiniteScroll
-                                    dataLength={this.state.news.length}
-                                    next={this.getNews}
-                                    hasMore={this.state.hasMore}
-                                      
-                                    loader={<div className="loader" key={0}>Loading ...</div>}
+                                        dataLength={this.state.news.length}
+                                        next={this.getNews}
+                                        hasMore={this.state.hasMore}
+                                        loader={<div className="loader" key={0}>Loading ...</div>}
                                     >
-                                    {this.renderNewsLeftFeature()}
+                                        {this.renderNewsLeftFeature()}
                                     </InfiniteScroll>
-                                    
-                                    
                                 </ul>
                             </Row>
                         </Col>

@@ -3,7 +3,7 @@ import '../css/Login-Register.css';
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
-class Login_Register extends Component {
+class LoginRegister extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -85,7 +85,7 @@ class LoginBox extends React.Component {
       let newArr = [];
       //Add all elements from the prev array to the new one that has a different element
       for (let err of prevState.errors) {
-        if (elm != err.elm) {
+        if (elm !== err.elm) {
           newArr.push(err);
         }
       }
@@ -106,7 +106,7 @@ class LoginBox extends React.Component {
 
   submitLogin(e) {
     let err = false;
-    if (this.state.email == "") {
+    if (this.state.email === "") {
       this.showValidationErr("email", "Email Cannot be empty!");
       err = true;
     }
@@ -123,7 +123,7 @@ class LoginBox extends React.Component {
       err = true;
     }
 
-    if(err == false){
+    if(err === false){
       const user = {
           "email": this.state.email,
           "password": this.state.password,
@@ -173,13 +173,13 @@ class LoginBox extends React.Component {
        for (let err of this.state.errors) {
          //Assign the validation error message 
          
-         if (err.elm == "password") {
+         if (err.elm === "password") {
            passwordErr = err.msg;
          }
-         if (err.elm == "email") {
+         if (err.elm === "email") {
            emailErr = err.msg;
          }
-         if (err.elm == "login") {
+         if (err.elm === "login") {
            loginErr = err.msg;
          }
 
@@ -242,7 +242,6 @@ class LoginBox extends React.Component {
 
 }
 
-
 //Register Box 
 class RegisterBox extends React.Component {
 
@@ -274,7 +273,7 @@ class RegisterBox extends React.Component {
       let newArr = [];
       //Add all elements from the prev array to the new one that has a different element
       for (let err of prevState.errors) {
-        if (elm != err.elm) {
+        if (elm !== err.elm) {
           newArr.push(err);
         }
       }
@@ -307,11 +306,11 @@ class RegisterBox extends React.Component {
   submitRegister(e) {
     let err = false;
     //Check for all input fields and show errors if empty (you can implement other cases!)
-      if (this.state.username == "") {
+      if (this.state.username === "") {
         this.showValidationErr("username", "Username Cannot be empty!");
         err = true;
       }
-      if (this.state.email == "") {
+      if (this.state.email === "") {
         this.showValidationErr("email", "Email Cannot be empty!");
         err = true;
       }
@@ -324,7 +323,7 @@ class RegisterBox extends React.Component {
         err = true;
       }
 
-      if (this.state.password == "") {
+      if (this.state.password === "") {
         this.showValidationErr("password", "Password Cannot be empty!");
         err = true;
       }
@@ -334,19 +333,19 @@ class RegisterBox extends React.Component {
         err = true;
       }
 
-      if (this.state.confirmed_password == "") {
+      if (this.state.confirmed_password === "") {
         this.showValidationErr("confirmed_password", "Confirmed Password Cannot be empty!");
         err = true;
       }
 
-      if (this.state.password != this.state.confirmed_password) {
+      if (this.state.password !== this.state.confirmed_password) {
         console.log(this.state.password, this.state.confirmed_password)
         console.log('ddd', this.state.confirmed_password)
         this.showValidationErr("confirmed_password", "Confirmed Password must be same as password");
         err = true;
       }
 
-      if(err == false){
+      if(err === false){
         const user = {
             "name": this.state.username,
             "email": this.state.email,
@@ -380,16 +379,16 @@ class RegisterBox extends React.Component {
        //Loop and find which ones has the error
        for (let err of this.state.errors) {
          //Assign the validation error message 
-         if (err.elm == "username") {
+         if (err.elm === "username") {
            usernameErr = err.msg;
          }
-         if (err.elm == "password") {
+         if (err.elm === "password") {
            passwordErr = err.msg;
          }
-         if (err.elm == "email") {
+         if (err.elm === "email") {
            emailErr = err.msg;
          }
-         if (err.elm == "confirmed_password") {
+         if (err.elm === "confirmed_password") {
            ConfirmedPassword = err.msg;
          }
 
@@ -477,25 +476,4 @@ class RegisterBox extends React.Component {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default Login_Register;
+export default LoginRegister;
