@@ -3,7 +3,7 @@ import '../css/Content-homepage.css';
 import '../css/Content-Category.css';
 import "antd/dist/antd.css";
 import axios from "axios";
-import {Col, Row, message} from "antd";
+import {BackTop, Col, Row, message} from "antd";
 import {Container} from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
@@ -170,6 +170,7 @@ class ContentCaegoty extends Component{
     render() {
         return(
             <div>
+                <BackTop />
                 <Container className="mt-2">
                     <Row>
                         <Col lg={16} className="featured-news">

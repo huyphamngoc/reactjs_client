@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "antd/dist/antd.css";
 import "../css/Content-Detail.css"
 import axios from "axios";
-import {Col, Row} from "antd";
+import {Col, Row,BackTop } from "antd";
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import html from 'react-inner-html';
@@ -145,6 +145,8 @@ class ContentDetail extends Component {
     render() {
         return (
             <div>
+                <BackTop />
+
                 <Container id="detail-content" className="news-detail-wrapper mt-2">
                     <div className="news-detail-container">
                         <Row>

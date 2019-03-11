@@ -17,7 +17,7 @@ class LayoutHeader extends Component {
             category: [],
             hasMore: true,
             loading: false,
-            api: "https://nalvnsmartnews.herokuapp.com/api/category",
+            api: "https://smartnews.nal.vn/api/category",
             show: false,
         };
 
@@ -27,6 +27,7 @@ class LayoutHeader extends Component {
 
         this.handleHide = () => {
           this.setState({ show: false });
+
         };
 
     }
