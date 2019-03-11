@@ -5,8 +5,8 @@ import {Row, Col} from 'antd';
 import {Modal, Navbar, Form, Button, FormControl, Container} from 'react-bootstrap';
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import LoginRegister from './Login-Register';
-
+import Login_Register from './Login-Register';
+import Login_Logout from './Login_Logout';
 
 class LayoutHeader extends Component {
     constructor(props) {
@@ -75,6 +75,7 @@ class LayoutHeader extends Component {
         });
     }
 
+
     render() {
         return (
             <div>
@@ -85,16 +86,16 @@ class LayoutHeader extends Component {
                         dialogClassName="modal-90w"
                         aria-labelledby="example-custom-modal-styling-title"
                     >
-                        <Modal.Body>
-                            <LoginRegister style={{
-                                width: '100%',
-                                height: '100%',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignCtems: 'center',
-                                flexDirection: 'column',
-                            }}/>
-                        </Modal.Body>
+                      
+                      <Modal.Body>
+                        <Login_Register style={{width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignCtems: 'center',
+    flexDirection: 'column',}} hide = {this.handleHide}/>
+                      </Modal.Body>
+
                     </Modal>
 
                     <Navbar bg="light" expand="lg">
@@ -123,52 +124,68 @@ class LayoutHeader extends Component {
                     </Navbar>
                 </div>
                 <div className="layout-top-master-pc pt-2 pb-2">
-                    <div>
-                        <Container>
-                            <Row>
-                                <Col lg={6}>
-                                    <h3>
-                                        <Link to={`/`}>
-                                            <img className="logo-top-pc"
-                                                 src="https://res.cloudinary.com/aptech-fpt/image/upload/v1549933837/logo-nal.png"
-                                                 alt="hihi"/>
-                                        </Link>
-                                    </h3>
-                                </Col>
 
-                                <Col lg={10}>
-                                    <Row>
-                                        <form action="#" className="pt-3">
-                                            <Col lg={20}>
-                                                <div className="form-group">
+                        <div>
+                            <Container>
+                                <Row>
+                                    <Col lg={6}>
+                                        <h3>
+                                            <Link to={`/`}>
+                                                <img className="logo-top-pc"
+                                                     src="https://res.cloudinary.com/aptech-fpt/image/upload/v1549933837/logo-nal.png"
+                                                     alt="hihi"/>
+                                            </Link>
+                                        </h3>
+                                    </Col>
 
-                                                    <input type="text" id="input-search-top-pc" className="form-control"
-                                                           placeholder="Nhập nội dung tìm kiếm"/>
-                                                </div>
-                                            </Col>
+                                    <Col lg={10} >
+                                        <Row>
+                                            <form action="#" className="pt-3">
+                                                <Col lg={20}>
+                                                    <div className="form-group">
 
-                                            <Col lg={3}>
-                                                <button type="submit" id="btn-search-top-pc" className=" btn btn-light">
-                                                    <i className="fas fa-search"></i></button>
-                                            </Col>
-                                        </form>
-                                    </Row>
-                                </Col>
-                                <Col lg={8}>
-                                    <div className="pt-3 ">
-                                        <ul className="nav justify-content-end">
-                                            <li className=" nav-item">
-                                                <a className="nav-link" href="#">
-                                                    <i id="login-pc-right"
-                                                       className="p-2 text-dark far fa-user" onClick={this.handleShow}>
-                                                    </i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </Col>
-                            </Row>
-                        </Container>
+                                                        <input type="text" id="input-search-top-pc" className="form-control"
+                                                               placeholder="Nhập nội dung tìm kiếm"/>
+                                                    </div>
+                                                </Col>
+
+                                                <Col lg={3}>
+                                                    <button type="submit" id="btn-search-top-pc" className=" btn btn-light"><i className="fas fa-search"></i></button>
+                                                </Col>
+                                            </form>
+                                        </Row>
+                                    </Col>
+                                    <Col lg={8}>
+                                        <div className="pt-3 ">
+                                            <ul className="nav justify-content-end">
+                                                <li className=" nav-item">
+                                                    <a className="nav-link" href="#">
+                                                    <Login_Logout passedFunction={this.handleShow}/>
+
+                                                        
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </div>
+
+                        <div className="layout-category-top-pc">
+                            <Container>
+                                <Row>
+                                    <ul className="nav list-menu-category-pc">
+                                        <li className="nav-item item-list-menu-category-pc pl-1 pr-1">
+                                            <Link className="nav-link text-white" to="/">
+                                                <i className=" fas fa-home"></i>
+                                            </Link>
+                                        </li>
+                                        {this.renderCategoryPC()}
+                                    </ul>
+                                </Row>
+                            </Container>
+                        </div>
                     </div>
 
                     <div className="layout-category-top-pc">
