@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/Login-Register.css';
-import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
 class LoginRegister extends Component {

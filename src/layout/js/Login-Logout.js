@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-class Login_Logout extends Component {
-
-
+class LoginLogout extends Component {
     logout = () => {
-      // sessionStorage.setItem("userData",'');
       sessionStorage.clear();
-      // this.setState({redirectToReferrer: true});
     }
 
     render (){
@@ -33,4 +29,4 @@ class Login_Logout extends Component {
     }
 }
 
-export default Login_Logout;
+export default LoginLogout;

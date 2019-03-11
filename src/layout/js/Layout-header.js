@@ -5,8 +5,8 @@ import {Row, Col} from 'antd';
 import {Modal, Navbar, Form, Button, FormControl, Container} from 'react-bootstrap';
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import Login_Register from './Login-Register';
-import Login_Logout from './Login_Logout';
+import LoginRegister from './Login-Register';
+import LoginLogout from './Login-Logout';
 
 class LayoutHeader extends Component {
     constructor(props) {
@@ -88,12 +88,12 @@ class LayoutHeader extends Component {
                     >
                       
                       <Modal.Body>
-                        <Login_Register style={{width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignCtems: 'center',
-    flexDirection: 'column',}} hide = {this.handleHide}/>
+                        <LoginRegister style={{width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignCtems: 'center',
+                                flexDirection: 'column',}} hide = {this.handleHide}/>
                       </Modal.Body>
 
                     </Modal>
@@ -102,7 +102,7 @@ class LayoutHeader extends Component {
                         <Navbar.Brand id="logo-header-sm" href="#home">
                             <Link to={`/`}>
                                 <img className="d-inline-block align-top"
-                                     src="https://res.cloudinary.com/aptech-fpt/image/upload/v1549933837/logo-nal.png"></img>
+                                     src="https://res.cloudinary.com/aptech-fpt/image/upload/v1549933837/logo-nal.png" ></img>
                             </Link>
                         </Navbar.Brand>
 
@@ -124,7 +124,6 @@ class LayoutHeader extends Component {
                     </Navbar>
                 </div>
                 <div className="layout-top-master-pc pt-2 pb-2">
-
                         <div>
                             <Container>
                                 <Row>
@@ -160,9 +159,7 @@ class LayoutHeader extends Component {
                                             <ul className="nav justify-content-end">
                                                 <li className=" nav-item">
                                                     <a className="nav-link" href="#">
-                                                    <Login_Logout passedFunction={this.handleShow}/>
-
-                                                        
+                                                    <LoginLogout passedFunction={this.handleShow}/>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -186,22 +183,6 @@ class LayoutHeader extends Component {
                                 </Row>
                             </Container>
                         </div>
-                    </div>
-
-                    <div className="layout-category-top-pc">
-                        <Container>
-                            <Row>
-                                <ul className="nav list-menu-category-pc">
-                                    <li className="nav-item item-list-menu-category-pc pl-1 pr-1">
-                                        <Link className="nav-link text-white" to="/">
-                                            <i className=" fas fa-home"></i>
-                                        </Link>
-                                    </li>
-                                    {this.renderCategoryPC()}
-                                </ul>
-                            </Row>
-                        </Container>
-                    </div>
                 </div>
             </div>
         );

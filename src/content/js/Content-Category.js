@@ -41,7 +41,6 @@ class ContentCaegoty extends Component{
                 .then((response) => {
                     const paginator = response.data.data,
                         news = paginator.data;
-                        console.log(paginator);
                     if(news.length){
                         // add new 
                         this.setState({
@@ -50,9 +49,6 @@ class ContentCaegoty extends Component{
                             loading: false,
                         });
                     }
-
-                    console.log(this.state.api);
-                    
                     // remove scroll event if next_page_url is null
                     if (!paginator.next_page_url) {
                       message.warning('Infinite List loaded all');
