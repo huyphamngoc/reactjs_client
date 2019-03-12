@@ -128,19 +128,41 @@ class LoginBox extends React.Component {
           "password": this.state.password,
       }
       console.log(user);
+
+      
+
       axios.post(`https://smartnews.nal.vn/api/login`, user )
             .then(res => {
+              
               console.log(res);
               console.log(res.data);
-              let responseJson = {
-                name: 'ninh',
-                email: 'duongninh1@gmail.com',
-                userId: 1,
-                token: res.data.token
-              }
-              sessionStorage.setItem('userData',JSON.stringify(responseJson));
+
+              axios.get('https://smartnews.nal.vn/api/auth', 
+              {
+                headers: {
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",                
+                  "Authorization": "Bearer"+res.data.token,
+                }
+              }).then(
+                res => {console.log(res.data);
+                  let responseJson = res.data
+                  sessionStorage.setItem('userData',JSON.stringify(responseJson));
+                  this.props.hide();
+                }
+              ).catch(err => {
+                console.log(err)
+              })
+
+              // let responseJson = {
+              //   name: 'ninh',
+              //   email: 'duongninh1@gmail.com',
+              //   userId: 1,
+              //   token: res.data.token
+              // }
+              
               this.setState({redirectToReferrer: true});
-              this.props.hide();
+              
 
             }).catch(error => {
               let err = error.response.data
