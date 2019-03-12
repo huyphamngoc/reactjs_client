@@ -43,7 +43,6 @@ class ContentHompage extends Component {
                             api: paginator.next_page_url,
                             loading: false,
                         });
-                        console.log(this.state.api);
                     }
 
                     // remove scroll event if next_page_url is null

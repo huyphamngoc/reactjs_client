@@ -9,7 +9,7 @@ class LoginLogout extends Component {
     render (){
         if(sessionStorage.getItem('userData')){
             return (<div>
-                <Link to={`/user`}>
+                <Link to={`/demo`}>
                     <i id="login-pc-right" className="p-2 text-dark">
                     {JSON.parse(sessionStorage.getItem('userData')).name}
                     </i>

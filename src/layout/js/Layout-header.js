@@ -37,7 +37,6 @@ class LayoutHeader extends Component {
                 this.setState({
                     category: getCategory
                 })
-                console.log(getCategory)
             })
             .catch(function (error) {
                 console.log(error);
