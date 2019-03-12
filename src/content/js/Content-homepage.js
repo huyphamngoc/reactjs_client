@@ -13,7 +13,7 @@ class ContentHompage extends Component {
         super(props);
         this.state = {
             news: [],
-            api: "https://smartnews.nal.vn/api/news",
+            api: "https://nalvnsmartnews.herokuapp.com/api/news",
             hasMore: true,
             loading: false
         };
@@ -69,18 +69,18 @@ class ContentHompage extends Component {
                 <li id="haha" key={value.id} className="list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <Link to={`/news-detail/${value.id}`}><img className="item-news" src={value.img}
+                            <Link to={`/news-detail/${value.url}`}><img className="item-news" src={value.img}
                                                                        alt=""/></Link>
                         </Col>
 
                         <Col lg={16} sm={16} xs={14}>
                             <h4 className="title-text-item-content-fl">
-                                <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
+                                <Link to={`/news-detail/${value.url}`}>{value.title}</Link>
                             </h4>
 
                             <div className="text-item-content-fl">
                                 <div className="categoty-item-content-fl mb-lg-1">
-                                    <Link to={`/news-detail/${value.id}`}>{value.category_name}</Link>
+                                    <Link to={`/news-detail/${value.url}`}>{value.category_name}</Link>
                                 </div>
                                 <span className="description-item-content-fl">
                                    {value.description}
@@ -99,7 +99,7 @@ class ContentHompage extends Component {
                 <li key={value.id} className="list-group-item">
                     <Row>
                         <Col lg={9} className=" pr-lg-1">
-                            <Link to={`/news-detail/${value.id}`}><img className="img-fluid"
+                            <Link to={`/news-detail/${value.url}`}><img className="img-fluid"
                                                                        src={value.img}
                                                                        alt=""/>
                             </Link>
@@ -107,7 +107,7 @@ class ContentHompage extends Component {
 
                         <Col lg={13}>
                             <h4 className="title-text-item-content-fl">
-                                <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
+                                <Link to={`/news-detail/${value.url}`}>{value.title}</Link>
                             </h4>
                         </Col>
                     </Row>
@@ -121,12 +121,12 @@ class ContentHompage extends Component {
         if (this.state.news.length !== 0) {
             return (
                 <div>
-                    <Link to={`/news-detail/${hotNewHomepagel.id}`}>
+                    <Link to={`/news-detail/${hotNewHomepagel.url}`}>
                         <img className="img-news-hot-top-fl"
                              src={hotNewHomepagel.img} alt=""/>
                     </Link>
                     <h3 className="title-news-hot-top-fl">
-                        <Link to={`/news-detail/${hotNewHomepagel.id}`}>{hotNewHomepagel.title}</Link>
+                        <Link to={`/news-detail/${hotNewHomepagel.url}`}>{hotNewHomepagel.title}</Link>
                     </h3>
                 </div>
             )
@@ -138,13 +138,13 @@ class ContentHompage extends Component {
         if (this.state.news.length !== 0) {
             return (
                 <div>
-                    <Link to={`/news-detail/${hotNewHomepage2.id}`}>
+                    <Link to={`/news-detail/${hotNewHomepage2.url}`}>
                         <img className="hehe"
                              src={hotNewHomepage2.img}
                              alt="#"/>
                     </Link>
                     <h3 className="title-news-hot-top-fr">
-                        <Link to={`/news-detail/${hotNewHomepage2.id}`}>
+                        <Link to={`/news-detail/${hotNewHomepage2.url}`}>
                             {hotNewHomepage2.title}
                         </Link>
                     </h3>

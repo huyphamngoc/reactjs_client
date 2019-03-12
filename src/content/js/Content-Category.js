@@ -7,6 +7,7 @@ import {BackTop, Col, Row, message} from "antd";
 import {Container} from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
+import { createBrowserHistory } from 'history';
 
 class ContentCaegoty extends Component{
     constructor(props){
@@ -23,7 +24,7 @@ class ContentCaegoty extends Component{
     getCategorys = () => {
         let url = '';
         if(this.state.api === ''){
-            url = `https://smartnews.nal.vn/api/category/news/${this.state.categoryId}`;
+            url = `https://nalvnsmartnews.herokuapp.com/api/category/news/${this.state.categoryId}`;
         } else {
             url = this.state.api
         }
@@ -95,19 +96,19 @@ class ContentCaegoty extends Component{
                 <li id="haha" key={value.id} className=" list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <Link to={`/news-detail/${value.id}`}><img className="item-news" src={value.img}
+                            <Link to={`/news-detail/${value.url}`}><img className="item-news" src={value.img}
                                              alt=""/></Link>
                         </Col>
 
                         <Col lg={16} sm={16} xs={14}>
 
                             <h4 className="title-text-item-content-fl">
-                                <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
+                                <Link to={`/news-detail/${value.url}`}>{value.title}</Link>
                             </h4>
 
                             <div className="text-item-content-fl">
                                 <div className="categoty-item-content-fl mb-lg-1">
-                                    <Link to={`/news-detail/${value.id}`}>{value.category_name}</Link>
+                                    <Link to={`/news-detail/${value.url}`}>{value.category_name}</Link>
                                 </div>
                                 <span className="description-item-content-fl">
                                    {value.description}
@@ -127,13 +128,13 @@ class ContentCaegoty extends Component{
         if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <Link to={`/news-detail/${hotNewCategory1.id}`}>
+                    <Link to={`/news-detail/${hotNewCategory1.url}`}>
                         <img className="img-news-hot-top-fl"
                              src={hotNewCategory1.img } alt=""
                         />
                     </Link>
                     <h3 className="title-news-hot-top-fl">
-                        <Link to={`/news-detail/${hotNewCategory1.id}`}>{hotNewCategory1.title}</Link>
+                        <Link to={`/news-detail/${hotNewCategory1.url}`}>{hotNewCategory1.title}</Link>
                     </h3>
                 </div>
             );
@@ -145,13 +146,13 @@ class ContentCaegoty extends Component{
         if (this.state.categorys.length !== 0) {
             return(
                 <div>
-                    <Link to={`/news-detail/${hotNewCategory2.id}`}>
+                    <Link to={`/news-detail/${hotNewCategory2.url}`}>
                         <img className="hehe"
                              src={hotNewCategory2.img}
                              alt="#"/>
                     </Link>
                     <h3 className="title-news-hot-top-fr">
-                        <Link to={`/news-detail/${hotNewCategory2.id}`}>
+                        <Link to={`/news-detail/${hotNewCategory2.url}`}>
                             {hotNewCategory2.title}
                         </Link>
                     </h3>

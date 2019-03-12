@@ -43,6 +43,16 @@ figure.image img{
     height: auto;
 }
 
+.width_common img{
+    height: auto;
+    max-width: 100%;
+}
+.tplCaption tbody tr td .Image{
+    font-style: italic;
+    font-size: 15px;
+    text-align: center;
+}
+
 .content-news-detail p{
     font-size: 16px;
     line-height: 24px;
@@ -71,4 +81,7 @@ figure.image img{
     .content-news-detail p{
         font-size: 17px;
         line-height: 25px;}
+    .tplCaption img{
+        width: 100%;
+    }
 }

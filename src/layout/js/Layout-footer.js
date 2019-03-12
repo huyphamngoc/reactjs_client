@@ -14,7 +14,7 @@ class LayoutFooter extends Component{
             category: [],
             hasMore: true,
             loading: false,
-            api: "https://smartnews.nal.vn/api/category/"
+            api: "https://nalvnsmartnews.herokuapp.com/api/category"
         };
 
     }
@@ -41,7 +41,7 @@ class LayoutFooter extends Component{
         return this.state.category.map((value) => {
             return (
                 <li className="nav-item item-list-menu-category-footer-pc pl-lg-0 pr-lg-0 pl-1 pr-1 ">
-                    <Link className=" nav-link" key={value.id} to={`/category/${value.id}`}>{value.name}</Link>
+                    <Link className=" nav-link" key={value.category_url} to={`/category/${value.category_url}`}>{value.name}</Link>
                 </li>
             );
         });
@@ -106,7 +106,7 @@ class LayoutFooter extends Component{
                                                 <div className="col-6 col-lg-12">
                                                     <a className="text-decoration-none" href="#">
                                                         <p className="mb-lg-0 text-item-footer-bottom"><i
-                                                            className="hihi text-danger fas fa-envelope"></i> huypn@gmail.com
+                                                            className="hihi text-danger fas fa-envelope"/> huypn@gmail.com
                                                         </p>
                                                     </a>
                                                 </div>
@@ -114,7 +114,7 @@ class LayoutFooter extends Component{
                                                     <a className="text-decoration-none" href="#">
                                                         <p className="mb-lg-0 text-lg-left text-right text-item-footer-bottom">
                                                             <i
-                                                                className="text-danger fas fa-question-circle"></i> Câu hỏi
+                                                                className="text-danger fas fa-question-circle"/> Câu hỏi
                                                             thường gặp</p>
                                                     </a>
                                                 </div>
@@ -127,7 +127,7 @@ class LayoutFooter extends Component{
                                                 <div className="col-6 col-lg-12">
                                                     <a className="text-decoration-none" href="#">
                                                         <p className="mb-lg-0 text-item-footer-bottom "><i
-                                                            className="text-danger fas fa-envelope"></i> marketing@nal.com
+                                                            className="text-danger fas fa-envelope"/> marketing@nal.com
                                                         </p>
                                                     </a>
                                                 </div>
@@ -135,7 +135,7 @@ class LayoutFooter extends Component{
                                                     <a className="text-decoration-none" href="#">
                                                         <p className="mb-lg-0 text-lg-left text-right text-item-footer-bottom">
                                                             <i
-                                                                className="text-danger fas fa-phone-square"></i> 0912 345
+                                                                className="text-danger fas fa-phone-square"/> 0912 345
                                                             678</p>
                                                     </a>
                                                 </div>
@@ -148,14 +148,14 @@ class LayoutFooter extends Component{
                                                 <div className="col-12 ">
                                                     <a className="text-decoration-none" href="#">
                                                         <p className="mb-lg-0 text-item-footer-bottom"><i
-                                                            className="text-danger fas fa-envelope"></i> marketing@nal.com
+                                                            className="text-danger fas fa-envelope"/> marketing@nal.com
                                                         </p>
                                                     </a>
                                                 </div>
                                                 <div className="col-12">
                                                     <a className="text-decoration-none" href="#">
                                                         <p className="mb-lg-0 text-item-footer-bottom"><i
-                                                            className="text-danger fas fa-phone-square"></i> 0912 345 678
+                                                            className="text-danger fas fa-phone-square"/> 0912 345 678
                                                         </p>
                                                     </a>
                                                 </div>

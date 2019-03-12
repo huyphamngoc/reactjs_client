@@ -8,6 +8,7 @@ import ContentCaegoty from "./content/js/Content-Category";
 import ContentDetail from "./content/js/Content-Detail";
 import UserDetail from "./content/js/UserDetail";
 import UserPost from "./content/js/UserPost";
+import demoHistory from "./demoHistory";
 
 class App extends Component {
     render() {
@@ -21,10 +22,13 @@ class App extends Component {
                     <div className="main-route-place">
                         <Switch>
                             <Route exact path="/" component={ContentHompage}/>
+
                             <Route exact path="/category/:categoryId" component={ContentCaegoty}/>
                             <Route exac path="/news-detail/:newsId" render = {props => <ContentDetail {...props} />}/>
                             <Route exact path="/user" component={UserDetail}/>
                             <Route exact path="/user/post" component={UserPost}/>
+
+                            <Route exact path="/demo/:demoId" render = {props => <demoHistory {...props} />}/>
                         </Switch>
                     </div>
 

@@ -12,11 +12,11 @@ class ContentDetail extends Component {
         super(props);
         this.state = {
             news: [],
-            newsId: undefined,
-            api: "https://smartnews.nal.vn/api/news/",
+            newsId: "",
+            api: "https://nalvnsmartnews.herokuapp.com/api/news/",
             categorys: [],
-            categoryId: undefined,
-            apiCategory: "https://smartnews.nal.vn/api/category/news/",
+            categoryId: "",
+            apiCategory: "https://nalvnsmartnews.herokuapp.com/api/category/news/",
         }
     }
 
@@ -29,14 +29,14 @@ class ContentDetail extends Component {
     getNews = () => {
         axios.get(`${this.state.api}${this.state.newsId}`)
             .then((response) => {
-                const getNews = response.data.data;
-                const getCategorys = response.data.data.category_id;
+                const getNews = response.data.data[0];
+                const getCategorys = response.data.data[0].category_url;
+                console.log(getNews)
                 this.setState({
                     news: getNews,
                     categoryId: getCategorys
-                }, this.getCategorys,
-                    this.topFunction(),
-                    )
+                },this.getCategorys);
+                this.topFunction()
             })
             .catch(function (error) {
                 console.log(error);
@@ -69,8 +69,7 @@ class ContentDetail extends Component {
             this.setState({
                 newsId : nextProps.match.params.newsId
             })
-            this.forceUpdate(this.getNews)
-
+            this.forceUpdate(this.getNews);
         } else {
             console.log("not update")
         }
@@ -112,20 +111,20 @@ class ContentDetail extends Component {
                 <li className="list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
-                            <Link to={`/news-detail/${value.id}`}>
+                            <Link to={`/news-detail/${value.url}`}>
                                 <img className="item-news" src={value.img} alt=""/>
                             </Link>
                         </Col>
 
                         <Col lg={16} sm={16} xs={14}>
                             <h4 className="title-text-item-content-fl">
-                                <Link to={`/news-detail/${value.id}`}>{value.title}</Link>
+                                <Link to={`/news-detail/${value.url}`}>{value.title}</Link>
                             </h4>
 
                             <div className="text-item-content-fl">
-                                {/*<div className="categoty-item-content-fl mb-lg-1">*/}
-                                    {/*<Link to={`//category/${value.id}`}>{value.id}</Link>*/}
-                                {/*</div>*/}
+                                <div className="categoty-item-content-fl mb-lg-1">
+                                    <Link to={`/category/${value.url}`}>{value.name}</Link>
+                                </div>
                                 <span className="description-item-content-fl">
                                     {value.description}
                                 </span>
