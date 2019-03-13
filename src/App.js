@@ -29,7 +29,7 @@ class App extends Component {
                             <Route exact path="/user" component={UserDetail}/>
                             <Route exact path="/user/post" component={UserPost}/>
 
-                            <Route exact path="/demo" render = {props => <LayoutProfile {...props} />}/>
+                            <Route exact path="/profile" render = {props => <LayoutProfile {...props} />}/>
                         </Switch>
                     </div>
 

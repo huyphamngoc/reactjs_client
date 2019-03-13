@@ -9,15 +9,17 @@ class LoginLogout extends Component {
     render (){
         if(sessionStorage.getItem('userData')){
             return (<div>
-                <Link to={`/demo`}>
+                <Link to={`/profile`}>
                     <i id="login-pc-right" className="p-2 text-dark">
                     {JSON.parse(sessionStorage.getItem('userData')).name}
                     </i>
                 </Link>
                 
-                <i id="login-pc-right" className="p-2 text-dark" onClick={this.logout}>
-                Logout
-                </i>
+                    <Link to={"/"}>
+                        <i id="login-pc-right" className="p-2 text-dark" onClick={this.logout}>
+                            Logout
+                        </i>
+                    </Link>
             </div>
                 )
             

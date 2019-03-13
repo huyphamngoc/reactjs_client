@@ -78,7 +78,7 @@ class LoginBox extends React.Component {
     }));
   }
 
-  //Remove a specific element from the array 
+  //Remove a specific element from the array
   clearValidationErr(elm) {
     this.setState((prevState) => {
       let newArr = [];
@@ -92,7 +92,7 @@ class LoginBox extends React.Component {
     });
   }
 
-  //Update Email, password on change event 
+  //Update Email, password on change event
   onEmailChange(e) {
     this.setState({email: e.target.value});
     this.clearValidationErr("email");
@@ -127,50 +127,32 @@ class LoginBox extends React.Component {
           "email": this.state.email,
           "password": this.state.password,
       }
-      console.log(user);
-
-      
 
       axios.post(`https://smartnews.nal.vn/api/login`, user )
             .then(res => {
-              
-              console.log(res);
-              console.log(res.data);
-
-              axios.get('https://smartnews.nal.vn/api/auth', 
+              axios.get('https://smartnews.nal.vn/api/auth',
               {
                 headers: {
                   "Access-Control-Allow-Origin": "*",
-                  "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",                
+                  "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
                   "Authorization": "Bearer"+res.data.token,
                 }
               }).then(
                 res => {console.log(res.data);
-                  let responseJson = res.data
+                  let responseJson = res.data;
                   sessionStorage.setItem('userData',JSON.stringify(responseJson));
                   this.props.hide();
                 }
               ).catch(err => {
                 console.log(err)
               })
-
-              // let responseJson = {
-              //   name: 'ninh',
-              //   email: 'duongninh1@gmail.com',
-              //   userId: 1,
-              //   token: res.data.token
-              // }
-              
               this.setState({redirectToReferrer: true});
-              
-
             }).catch(error => {
               let err = error.response.data
               console.log(error.response.data.msg)
               if(err.msg){
                   this.showValidationErr("login", err.msg);
               }
-
           })
     }
 
@@ -180,20 +162,20 @@ class LoginBox extends React.Component {
     // if (this.state.redirectToReferrer) {
     //   return (<Redirect to={'/user'}/>)
     // }
-    
+
     // if(sessionStorage.getItem('userData')){
     //   return (<Redirect to={'/'}/>)
     // }
 
     //NULL by default (help us check when rendering)
-       let 
+       let
          passwordErr = null,
          emailErr = null,
          loginErr = null;
        //Loop and find which ones has the error
        for (let err of this.state.errors) {
-         //Assign the validation error message 
-         
+         //Assign the validation error message
+
          if (err.elm === "password") {
            passwordErr = err.msg;
          }
@@ -288,7 +270,7 @@ class RegisterBox extends React.Component {
       ]
     }));
   }
-  //Remove a specific element from the array 
+  //Remove a specific element from the array
   clearValidationErr(elm) {
     this.setState((prevState) => {
       let newArr = [];
@@ -302,10 +284,10 @@ class RegisterBox extends React.Component {
     });
   }
 
-  //Update Username, password, and email on change event 
+  //Update Username, password, and email on change event
   onUsernameChange(e) {
     this.setState({username: e.target.value});
-    //We want to clear the error when ever the user type something new 
+    //We want to clear the error when ever the user type something new
     this.clearValidationErr("username");
   }
 
@@ -399,7 +381,7 @@ class RegisterBox extends React.Component {
          ConfirmedPassword = null;
        //Loop and find which ones has the error
        for (let err of this.state.errors) {
-         //Assign the validation error message 
+         //Assign the validation error message
          if (err.elm === "username") {
            usernameErr = err.msg;
          }
@@ -412,7 +394,6 @@ class RegisterBox extends React.Component {
          if (err.elm === "confirmed_password") {
            ConfirmedPassword = err.msg;
          }
-
          //No (else if or else) statements cause we need to check for all possible elements
        }
 

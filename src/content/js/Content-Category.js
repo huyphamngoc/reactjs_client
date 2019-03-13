@@ -197,31 +197,42 @@ class ContentCaegoty extends Component{
                         <Col lg={8} className="featured-banner-hot-top-fr pr-lg-0">
                             <Row>
                                 <Col lg={24} className="ml-lg-4 banner-right">
-                                    <a href="#">
+                                    <a href="https://nal.vn/">
                                         <img className="img-fluid"
-                                             src="https://res.cloudinary.com/aptech-fpt/image/upload/v1551411295/quy11-adx5c18af1f522e8.jpg"
+                                             src="https://res.cloudinary.com/aptech-fpt/image/upload/v1552463929/20767980_831900870306139_1675310515475069197_n.jpg"
                                              alt=""/>
                                     </a>
                                 </Col>
                             </Row>
-                            <Row>
-                                <Col lg={24} className="ml-lg-4 banner-right">
-                                    <a href="#">
-                                        <iframe style={{height:258}} className="img-fluid"
-                                                src="https://adi.admicro.vn/adt/banners/nam2015/4043/min_html5/dungvuanh/2019_01_28/300X250(1)/300X250/300X250.html?url=%2F%2Flg1.logging.admicro.vn%2Fadn%3Fdmn%3Dhttp%253A%252F%252Fkenh14.vn%252Fstar.chn%26lsn%3D1551407726100%26ce%3D1%26lc%3D4%26cr%3D1545484963%26ui%3D5245484963250132679%26bi%3D0%26cmpg%3D36349%26items%3D132787%26zid%3D27032%26pr%3D13307224913%26cid%3D-1%26tp%3D12%26tpn%3D4%26adc_cpa%3D1%26cov%3D1%26re%3Dhttps%253A%252F%252Fadsgame.soha.vn%252Fservice%252Fservice%252Ftrack%253Futm_campaign%253DLDBN_ADXPC%2526utm_source%253DLDBN_ADXPC%2526redirected%253Dhttps%25253A%25252F%25252Flongdobanghiep.vn%25252Ftop1&admid=adnzone_27032_0_132787"
-                                                alt=""/>
-                                    </a>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col lg={24} className="ml-lg-4 banner-right">
-                                    <a href="#">
-                                        <iframe style={{height:604}} className="img-fluid"
-                                                src="https://res.cloudinary.com/aptech-fpt/image/upload/v1551495198/banner-vietpro-tet.gif"
-                                        alt=""/>
-                                    </a>
-                                </Col>
-                            </Row>
+
+                            {/*<Row>*/}
+                                {/*<Col lg={24} className="ml-lg-4 banner-right">*/}
+                                    {/*<a href="#">*/}
+                                        {/*<img className="img-fluid"*/}
+                                             {/*src="https://res.cloudinary.com/aptech-fpt/image/upload/v1551411295/quy11-adx5c18af1f522e8.jpg"*/}
+                                             {/*alt=""/>*/}
+                                    {/*</a>*/}
+                                {/*</Col>*/}
+                            {/*</Row>*/}
+                            {/*<Row>*/}
+                                {/*<Col lg={24} className="ml-lg-4 banner-right">*/}
+                                    {/*<a href="#">*/}
+                                        {/*<iframe style={{height:258}} className="img-fluid"*/}
+                                                {/*src="https://adi.admicro.vn/adt/banners/nam2015/4043/min_html5/dungvuanh/2019_01_28/300X250(1)/300X250/300X250.html?url=%2F%2Flg1.logging.admicro.vn%2Fadn%3Fdmn%3Dhttp%253A%252F%252Fkenh14.vn%252Fstar.chn%26lsn%3D1551407726100%26ce%3D1%26lc%3D4%26cr%3D1545484963%26ui%3D5245484963250132679%26bi%3D0%26cmpg%3D36349%26items%3D132787%26zid%3D27032%26pr%3D13307224913%26cid%3D-1%26tp%3D12%26tpn%3D4%26adc_cpa%3D1%26cov%3D1%26re%3Dhttps%253A%252F%252Fadsgame.soha.vn%252Fservice%252Fservice%252Ftrack%253Futm_campaign%253DLDBN_ADXPC%2526utm_source%253DLDBN_ADXPC%2526redirected%253Dhttps%25253A%25252F%25252Flongdobanghiep.vn%25252Ftop1&admid=adnzone_27032_0_132787"*/}
+                                                {/*alt=""/>*/}
+                                    {/*</a>*/}
+                                {/*</Col>*/}
+                            {/*</Row>*/}
+                            {/*<Row>*/}
+                                {/*<Col lg={24} className="ml-lg-4 banner-right">*/}
+                                    {/*<a href="#">*/}
+                                        {/*<iframe style={{height:604}} className="img-fluid"*/}
+                                                {/*src="https://res.cloudinary.com/aptech-fpt/image/upload/v1551495198/banner-vietpro-tet.gif"*/}
+                                        {/*alt=""/>*/}
+                                    {/*</a>*/}
+                                {/*</Col>*/}
+                            {/*</Row>*/}
+
                         </Col>
                     </Row>
                 </Container>

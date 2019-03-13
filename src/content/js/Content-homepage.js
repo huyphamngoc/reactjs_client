@@ -190,15 +190,7 @@ class ContentHompage extends Component {
                                     {this.renderNewsRightFeature()}
                                 </ul>
                             </Row>
-                            <Row>
-                                <Col lg={24} className="ml-lg-4 banner-right">
-                                    <a href="#">
-                                        <img className="img-fluid"
-                                             src="https://res.cloudinary.com/aptech-fpt/image/upload/v1550772078/banner_hcm_02-min.png"
-                                             alt=""/>
-                                    </a>
-                                </Col>
-                            </Row>
+
                         </Col>
                     </Row>
                 </Container>
