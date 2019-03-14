@@ -5,7 +5,6 @@ import {Form, Input, Select, Button, notification} from "antd";
 
 
 import FroalaEditor from 'react-froala-wysiwyg';
-import ListNewsUser from "./ListNewsUser";
 const USER = JSON.parse(sessionStorage.getItem('userData'));
 
 const Option = Select.Option;
@@ -63,8 +62,6 @@ class DynamicRule extends React.Component {
             loading: false,
             iconLoading: false,
             checktitle: false,
-
-
         };
 
         this.handleModelChange = this.handleModelChange.bind(this);
@@ -77,15 +74,12 @@ class DynamicRule extends React.Component {
         this.setState({loading: true});
     }
 
-
-    componentDidMount() {
+    componentWillMount() {
         this.getCategory();
     }
 
     handleUploadFile(e) {
 
-        // console.log(this);
-        // console.log(e.target.files[0]);
         var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqbat91l8/upload';
         var CLOUDINARY_UPLOAD_PRESET = 'b3uy9rh5';
         var file = e.target.files[0];
@@ -108,7 +102,6 @@ class DynamicRule extends React.Component {
     }
 
     handleFormSubmit() {
-        //e.preventDefault();
         var _this = this;
         let form = document.getElementById("formNews");
 
@@ -122,7 +115,6 @@ class DynamicRule extends React.Component {
             "user_id": USER.id,
             "img": form['sowImage'].src
         };
-
         var req = new XMLHttpRequest();
         req.open("POST", "http://nalvnsmartnews.herokuapp.com/api/news");
         req.setRequestHeader("Content-Type", "application/json");
@@ -130,7 +122,6 @@ class DynamicRule extends React.Component {
             var res = JSON.parse(this.responseText);
             if (req.status === 200 || req.status === 201) {
                 openNotificationWithIcon('success', this.responseText);
-
             } else {
                 console.log(res);
                 openNotificationWithIcon('error', this.responseText);
@@ -142,16 +133,14 @@ class DynamicRule extends React.Component {
 
     getCategory() {
         var req = new XMLHttpRequest();
-        var dataCategory;
         var _this = this;
 
         req.open("GET", "http://nalvnsmartnews.herokuapp.com/api/category");
         req.setRequestHeader("Content-Type", "application/json");
         req.onload = function () {
             if (req.status === 200 || req.status === 201) {
-                dataCategory = (JSON.parse(this.responseText)).data
                 _this.setState({
-                    categoryOptions: dataCategory
+                    categoryOptions: (JSON.parse(this.responseText)).data
                 });
             } else {
                 console.log(JSON.parse(this.responseText));
@@ -163,8 +152,6 @@ class DynamicRule extends React.Component {
     handleClearForm(e) {
         e.preventDefault();
         this.setState({});
-
-
     }
 
     check = () => {

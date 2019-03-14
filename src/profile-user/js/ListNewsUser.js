@@ -66,9 +66,9 @@ class ListNewsUser extends React.Component {
         });
     }
 
-    componentDidMount() {
+    componentWillMount()
+    {
         this.getListNews();
-
     }
 
     enterLoading = () => {
@@ -85,7 +85,6 @@ class ListNewsUser extends React.Component {
         req.onload = function () {
             if (req.status === 200 || req.status === 201) {
                 dataListNews = (JSON.parse(this.responseText)).data;
-
                 _this.setState({
                     listData: dataListNews,
                     loading: false,
@@ -105,7 +104,6 @@ class ListNewsUser extends React.Component {
                     size="large"
                     pagination={{
                         onChange: (page) => {
-
                         },
                         pageSize: 5,
                     }}
