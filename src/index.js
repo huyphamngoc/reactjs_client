@@ -5,7 +5,20 @@ import '../src/content/css/Content-homepage.css';
 import './content/js/Content-homepage';
 import * as serviceWorker from './serviceWorker';
 import App from "./App";
-import LayoutProfile from "./profile-user/js/Layout-profile";
+// Require Editor JS files.
+import 'froala-editor/js/froala_editor.pkgd.min.js';
+
+// Require Editor CSS files.
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+
+// Require Font Awesome.
+import 'font-awesome/css/font-awesome.css';
+
+import $ from 'jquery';
+import RegisterUser from "./profile-user/js/Register-User";
+window.$ = $;
+
 
 ReactDOM.render(
     <App/>

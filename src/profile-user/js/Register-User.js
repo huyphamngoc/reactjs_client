@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
-import '../css/Content-homepage.css';
+import '../css/Register-User.css';
 import "antd/dist/antd.css";
-import {BackTop, Row, message, Col} from 'antd';
+import { Row, message, Col,Modal} from 'antd';
 import {Container,} from 'react-bootstrap';
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
+import ContentHompage from "../../content/js/Content-homepage";
 
-class ContentHompage extends Component {
-    constructor(props) {
+class RegisterUser extends Component{
+    constructor(props){
         super(props);
         this.state = {
             news: [],
             api: "https://nalvnsmartnews.herokuapp.com/api/news",
             hasMore: true,
             loading: false,
+            visible: true,
+            haha : true,
         };
     }
 
@@ -36,7 +39,7 @@ class ContentHompage extends Component {
                         news = paginator.data;
 
                     if (news.length) {
-                        // add new 
+                        // add new
                         this.setState({
                             news: [...this.state.news, ...news],
                             api: paginator.next_page_url,
@@ -68,7 +71,7 @@ class ContentHompage extends Component {
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
                             <Link to={`/news-detail/${value.url}`}><img className="item-news" src={value.img}
-                                                                       alt=""/></Link>
+                                                                        alt=""/></Link>
                         </Col>
 
                         <Col lg={16} sm={16} xs={14}>
@@ -98,8 +101,8 @@ class ContentHompage extends Component {
                     <Row>
                         <Col lg={9} className=" pr-lg-1">
                             <Link to={`/news-detail/${value.url}`}><img className="img-fluid"
-                                                                       src={value.img}
-                                                                       alt=""/>
+                                                                        src={value.img}
+                                                                        alt=""/>
                             </Link>
                         </Col>
 
@@ -151,10 +154,31 @@ class ContentHompage extends Component {
         }
     }
 
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        if (nextState.visible !== this.state.visible){
+            return <ContentHompage />;
+        }
+    }
+
+    handleOk = ()=>{
+        this.setState({
+                visible: false,
+            });
+    }
+
     render() {
+
         return (
             <div>
-                <BackTop/>
+                <Modal
+                    title="Basic Modal"
+                    visible={this.state.visible}
+                      onOk={this.handleOk()}>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Modal>
+
                 <Container className="mt-2">
                     <Row>
                         <Col lg={16} className="featured-news">
@@ -198,4 +222,4 @@ class ContentHompage extends Component {
     }
 }
 
-export default ContentHompage;
+export default RegisterUser;

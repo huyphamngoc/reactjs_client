@@ -8,8 +8,8 @@ import ContentCaegoty from "./content/js/Content-Category";
 import ContentDetail from "./content/js/Content-Detail";
 import UserDetail from "./content/js/UserDetail";
 import UserPost from "./content/js/UserPost";
-import demoHistory from "./demoHistory";
 import LayoutProfile from "./profile-user/js/Layout-profile";
+import RegisterUser from "./profile-user/js/Register-User";
 
 class App extends Component {
     render() {
@@ -28,7 +28,6 @@ class App extends Component {
                             <Route exac path="/news-detail/:newsId" render = {props => <ContentDetail {...props} />}/>
                             <Route exact path="/user" component={UserDetail}/>
                             <Route exact path="/user/post" component={UserPost}/>
-
                             <Route exact path="/profile" render = {props => <LayoutProfile {...props} />}/>
                         </Switch>
                     </div>
