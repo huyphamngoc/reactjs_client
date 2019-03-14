@@ -77,14 +77,9 @@ class DynamicRule extends React.Component {
         this.setState({loading: true});
     }
 
-    enterIconLoading = () => {
-        this.setState({iconLoading: true});
-    }
 
     componentDidMount() {
         this.getCategory();
-
-
     }
 
     handleUploadFile(e) {
@@ -135,11 +130,7 @@ class DynamicRule extends React.Component {
             var res = JSON.parse(this.responseText);
             if (req.status === 200 || req.status === 201) {
                 openNotificationWithIcon('success', this.responseText);
-                setTimeout(() => {
-                  return(
-                      <ListNewsUser/>
-                  );
-                }, 3000);
+
             } else {
                 console.log(res);
                 openNotificationWithIcon('error', this.responseText);
@@ -240,7 +231,6 @@ class DynamicRule extends React.Component {
                             style={{width: 200}}
                             placeholder="Select a category"
                             onChange={this.handleSelectChange}
-                            onClick={this.getCategory}
                         >
                             {this.state.categoryOptions.map((value, i) => <Option key={i}
                                                                                   value={value.id}>{value.name}</Option>)}
