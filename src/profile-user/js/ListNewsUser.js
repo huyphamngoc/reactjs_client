@@ -1,7 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import {List, Icon, notification, Button, Modal} from 'antd';
-import Link from "react-router-dom/es/Link";
 
 const confirm = Modal.confirm;
 
@@ -70,8 +69,9 @@ class ListNewsUser extends React.Component {
         const haha = JSON.parse(sessionStorage.getItem('userData'));
         this.setState({
             user:haha.id
+        }, ()=>{
+            this.getListNews()
         })
-        this.getListNews();
     }
 
     enterLoading = () => {
