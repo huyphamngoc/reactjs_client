@@ -5,7 +5,6 @@ import {Form, Input, Select, Button, notification} from "antd";
 
 
 import FroalaEditor from 'react-froala-wysiwyg';
-const USER = JSON.parse(sessionStorage.getItem('userData'));
 
 const Option = Select.Option;
 
@@ -62,6 +61,7 @@ class DynamicRule extends React.Component {
             loading: false,
             iconLoading: false,
             checktitle: false,
+            user: undefined
         };
 
         this.handleModelChange = this.handleModelChange.bind(this);
@@ -75,6 +75,10 @@ class DynamicRule extends React.Component {
     }
 
     componentWillMount() {
+        const haha = JSON.parse(sessionStorage.getItem('userData'));
+        this.setState({
+            user:haha.id
+        })
         this.getCategory();
     }
 
@@ -112,11 +116,11 @@ class DynamicRule extends React.Component {
             "source": form['source'].value,
             "author": form['author'].value,
             "category_id": this.state.category,
-            "user_id": USER.id,
+            "user_id": this.state.user,
             "img": form['sowImage'].src
         };
         var req = new XMLHttpRequest();
-        req.open("POST", "http://nalvnsmartnews.herokuapp.com/api/news");
+        req.open("POST", "https://nalvnsmartnews.herokuapp.com/api/news");
         req.setRequestHeader("Content-Type", "application/json");
         req.onload = function () {
             var res = JSON.parse(this.responseText);
@@ -134,13 +138,12 @@ class DynamicRule extends React.Component {
     getCategory() {
         var req = new XMLHttpRequest();
         var _this = this;
-
         req.open("GET", "https://nalvnsmartnews.herokuapp.com/api/category");
         req.setRequestHeader("Content-Type", "application/json");
         req.onload = function () {
             if (req.status === 200 || req.status === 201) {
                 _this.setState({
-                    categoryOptions: (JSON.parse(this.responseText)).data
+                    categoryOptions: (JSON.parse(this.responseText)).data,
                 });
             } else {
                 console.log(JSON.parse(this.responseText));
@@ -148,6 +151,7 @@ class DynamicRule extends React.Component {
         };
         req.send();
     }
+
 
     handleClearForm(e) {
         e.preventDefault();
