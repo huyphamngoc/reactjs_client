@@ -135,7 +135,7 @@ class DynamicRule extends React.Component {
         var req = new XMLHttpRequest();
         var _this = this;
 
-        req.open("GET", "http://nalvnsmartnews.herokuapp.com/api/category");
+        req.open("GET", "https://nalvnsmartnews.herokuapp.com/api/category");
         req.setRequestHeader("Content-Type", "application/json");
         req.onload = function () {
             if (req.status === 200 || req.status === 201) {
