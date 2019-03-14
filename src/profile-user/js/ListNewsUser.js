@@ -7,7 +7,6 @@ const confirm = Modal.confirm;
 
 const API_URL = "https://nalvnsmartnews.herokuapp.com";
 
-const USER = JSON.parse(sessionStorage.getItem('userData'));
 
 const openNotificationWithIcon = (type, notifi) => {
     notification[type]({
@@ -68,6 +67,10 @@ class ListNewsUser extends React.Component {
 
     componentWillMount()
     {
+        const haha = JSON.parse(sessionStorage.getItem('userData'));
+        this.setState({
+            user:haha.id
+        })
         this.getListNews();
     }
 
@@ -80,7 +83,7 @@ class ListNewsUser extends React.Component {
         var dataListNews;
         var _this = this;
 
-        req.open("GET", API_URL + "/api/news/user/"+ USER.id);
+        req.open("GET", API_URL + "/api/news/user/"+ this.state.user);
         req.setRequestHeader("Content-Type", "application/json");
         req.onload = function () {
             if (req.status === 200 || req.status === 201) {
