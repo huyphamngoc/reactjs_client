@@ -31,7 +31,6 @@ class ContentDetail extends Component {
             .then((response) => {
                 const getNews = response.data.data[0];
                 const getCategorys = response.data.data[0].category_url;
-                console.log(getNews)
                 this.setState({
                     news: getNews,
                     categoryId: getCategorys

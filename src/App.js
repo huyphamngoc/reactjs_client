@@ -9,6 +9,7 @@ import ContentDetail from "./content/js/Content-Detail";
 import UserDetail from "./content/js/UserDetail";
 import UserPost from "./content/js/UserPost";
 import demoHistory from "./demoHistory";
+import LayoutProfile from "./profile-user/js/Layout-profile";
 
 class App extends Component {
     render() {
@@ -28,7 +29,7 @@ class App extends Component {
                             <Route exact path="/user" component={UserDetail}/>
                             <Route exact path="/user/post" component={UserPost}/>
 
-                            <Route exact path="/demo/:demoId" render = {props => <demoHistory {...props} />}/>
+                            <Route exact path="/profile" render = {props => <LayoutProfile {...props} />}/>
                         </Switch>
                     </div>
 
