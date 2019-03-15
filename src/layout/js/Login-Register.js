@@ -138,7 +138,7 @@ class LoginBox extends React.Component {
                   "Authorization": "Bearer"+res.data.token,
                 }
               }).then(
-                res => {console.log(res.data);
+                res => {
                   let responseJson = res.data;
                   sessionStorage.setItem('userData',JSON.stringify(responseJson));
                   this.props.hide();
@@ -159,15 +159,7 @@ class LoginBox extends React.Component {
   }
 
   render() {
-    // if (this.state.redirectToReferrer) {
-    //   return (<Redirect to={'/user'}/>)
-    // }
 
-    // if(sessionStorage.getItem('userData')){
-    //   return (<Redirect to={'/'}/>)
-    // }
-
-    //NULL by default (help us check when rendering)
        let
          passwordErr = null,
          emailErr = null,
@@ -357,13 +349,11 @@ class RegisterBox extends React.Component {
         }
         axios.post(`https://nalvnsmartnews.herokuapp.com/api/register`, user )
               .then(res => {
-                console.log('You have registered successfully')
+                console.log('You have registered successfully');
+                alert("You have registered successfully");
               }).catch(error => {
                 // let err = error.response.data.errors
                 console.log(error)
-                // if(err.email){
-                //     this.showValidationErr("email", err.email[0]);
-                // }
 
             })
       }
