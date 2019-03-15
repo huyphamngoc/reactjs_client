@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../css/Login-Register.css';
 import axios from "axios";
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 
 class LoginRegister extends Component {
     constructor(props) {
@@ -130,6 +132,8 @@ class LoginBox extends React.Component {
 
       axios.post(`https://nalvnsmartnews.herokuapp.com/api/login`, user )
             .then(res => {
+              sessionStorage.setItem('token',res.data.token);
+             
               axios.get('https://nalvnsmartnews.herokuapp.com/api/auth',
               {
                 headers: {
@@ -146,6 +150,7 @@ class LoginBox extends React.Component {
               ).catch(err => {
                 console.log(err)
               })
+        
               this.setState({redirectToReferrer: true});
             }).catch(error => {
               let err = error.response.data
@@ -179,6 +184,67 @@ class LoginBox extends React.Component {
          }
 
        }
+
+       const responseFacebook = (response) => {
+         console.log(response)
+         const user = {
+          "name": response.name,
+          "email": 'fb'+response.email,
+          "password": 'fb'+response.email,
+          "passwordConfirm": 'fb'+response.email,
+      }
+        console.log(user);
+        axios.post(`https://smartnews.nal.vn/api/fb-google`, user )
+              .then(res => {
+                console.log(res);
+                console.log(res.data[0]);
+                
+                let responseJson = res.data[0]
+                sessionStorage.setItem('userData',JSON.stringify(responseJson));
+                sessionStorage.setItem('token',res.data[0].token);
+                this.props.hide();
+                
+                alert('You have log in successfully')
+              }).catch(error => {
+                let err = error.response.data.errors
+                console.log(error.response.data.errors)
+                if(err.email){
+                    this.showValidationErr("email", err.email[0]);
+                }
+
+            })
+       }
+
+       const responseGoogle = (response) => {
+         console.log(response)
+         const user = {
+          "name": response.w3.ig,
+          "email": 'google'+response.w3.U3,
+          "password": 'google'+response.w3.U3,
+          "passwordConfirm": 'google'+response.w3.U3,
+      }
+        console.log(user);
+        axios.post(`https://smartnews.nal.vn/api/fb-google`, user )
+              .then(res => {
+                console.log(res);
+                console.log(res.data);
+
+                let responseJson = res.data[0]
+                sessionStorage.setItem('token',res.data[0].token);
+                sessionStorage.setItem('userData',JSON.stringify(responseJson));
+                this.props.hide();
+
+                alert('You have log in successfully')
+              }).catch(error => {
+                let err = error.response.data.errors
+                console.log(error.response.data.errors)
+                if(err.email){
+                    this.showValidationErr("email", err.email[0]);
+                }
+
+            })
+       }
+
     return (
       <div className="inner-container">
         <div className="header">
@@ -231,6 +297,22 @@ class LoginBox extends React.Component {
             .submitLogin
             .bind(this)}>Login</button>
         </div>
+        <div className="ggandfb">
+        <GoogleLogin id="google"
+            clientId="798892269779-25u0g549d4g6h00qnamqh8rj0nccvntu.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+          />
+
+        <FacebookLogin
+          appId="267346294154527"
+          autoLoad={false}
+          fields="name,email,picture"
+          // onClick={componentClicked}
+          callback={responseFacebook} />        
+        </div>
+        
       </div>
     );
   }
