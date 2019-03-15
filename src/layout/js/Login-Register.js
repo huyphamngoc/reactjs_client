@@ -130,12 +130,11 @@ class LoginBox extends React.Component {
           "password": this.state.password,
       }
 
-      axios.post(`https://smartnews.nal.vn/api/login`, user )
+      axios.post(`https://nalvnsmartnews.herokuapp.com/api/login`, user )
             .then(res => {
-              console.log(res);
-              console.log(res.data);
               sessionStorage.setItem('token',res.data.token);
-              axios.get('https://smartnews.nal.vn/api/auth', 
+             
+              axios.get('https://nalvnsmartnews.herokuapp.com/api/auth',
               {
                 headers: {
                   "Access-Control-Allow-Origin": "*",
@@ -143,7 +142,7 @@ class LoginBox extends React.Component {
                   "Authorization": "Bearer"+res.data.token,
                 }
               }).then(
-                res => {console.log(res.data);
+                res => {
                   let responseJson = res.data;
                   sessionStorage.setItem('userData',JSON.stringify(responseJson));
                   this.props.hide();
@@ -165,15 +164,7 @@ class LoginBox extends React.Component {
   }
 
   render() {
-    // if (this.state.redirectToReferrer) {
-    //   return (<Redirect to={'/user'}/>)
-    // }
 
-    // if(sessionStorage.getItem('userData')){
-    //   return (<Redirect to={'/'}/>)
-    // }
-
-    //NULL by default (help us check when rendering)
        let
          passwordErr = null,
          emailErr = null,
@@ -438,18 +429,13 @@ class RegisterBox extends React.Component {
             "password": this.state.password,
             "passwordConfirm": this.state.confirmed_password,
         }
-        console.log(user);
-        axios.post(`https://smartnews.nal.vn/api/register`, user )
+        axios.post(`https://nalvnsmartnews.herokuapp.com/api/register`, user )
               .then(res => {
-                console.log(res);
-                console.log(res.data);
-                alert('You have registered successfully')
+                console.log('You have registered successfully');
+                alert("You have registered successfully");
               }).catch(error => {
-                let err = error.response.data.errors
-                console.log(error.response.data.errors)
-                if(err.email){
-                    this.showValidationErr("email", err.email[0]);
-                }
+                // let err = error.response.data.errors
+                console.log(error)
 
             })
       }

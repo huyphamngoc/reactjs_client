@@ -7,6 +7,7 @@ import axios from 'axios';
 import {Link} from "react-router-dom";
 import LoginRegister from './Login-Register';
 import LoginLogout from './Login-Logout';
+import NavItem from "react-bootstrap/es/NavItem";
 
 class LayoutHeader extends Component {
     constructor(props) {
@@ -50,10 +51,9 @@ class LayoutHeader extends Component {
     renderCategorySm = () => {
         return this.state.category.map((value) => {
             return (
-                <Col xs={12} sm={12} md={6}>
+                <Col key={value.id} xs={12} sm={12} md={6}>
                     <li className="nav-item  item-category-menu-sm">
-                        <Link className="nav-link text-decoration-none" key={value.category_url} to={`/category/${value.category_url}`}
-                        >
+                        <Link className="nav-link text-decoration-none" key={value.id} to={`/category/${value.category_url}`}>
                             {value.name}
                         </Link>
                     </li>
@@ -65,8 +65,8 @@ class LayoutHeader extends Component {
     renderCategoryPC = () => {
         return this.state.category.map((value) => {
             return (
-                <li className="nav-item item-list-menu-category-pc pl-1 pr-1">
-                    <Link className="nav-link text-white" key={value.category_url} to={`/category/${value.category_url}`}
+                <li key={value.id} className="nav-item item-list-menu-category-pc pl-1 pr-1">
+                    <Link className="nav-link text-white" key={value.id} to={`/category/${value.category_url}`}
                     >
                         {value.name}
                     </Link>
@@ -100,10 +100,10 @@ class LayoutHeader extends Component {
 
                     <Navbar bg="light" expand="lg">
                         <Navbar.Brand id="logo-header-sm" href="#home">
-                            <Link to={`/`}>
+                            <NavItem href="/" to="/" >
                                 <img className="d-inline-block align-top"
-                                     src="https://res.cloudinary.com/aptech-fpt/image/upload/v1549933837/logo-nal.png" alt=""/>
-                            </Link>
+                                     src="https://res.cloudinary.com/aptech-fpt/image/upload/v1549933837/logo-nal.png" alt="img-error"/>
+                            </NavItem>
                         </Navbar.Brand>
 
                         {/*menu-nav-item-moblie*/}
@@ -158,9 +158,9 @@ class LayoutHeader extends Component {
                                     <div className="pt-3 ">
                                         <ul className="nav justify-content-end">
                                             <li className=" nav-item">
-                                                <a className="nav-link" href="#">
+                                                <Link className="nav-link" to="/">
                                                     <LoginLogout passedFunction={this.handleShow}/>
-                                                </a>
+                                                </Link>
                                             </li>
                                         </ul>
                                     </div>

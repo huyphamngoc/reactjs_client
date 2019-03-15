@@ -107,7 +107,7 @@ class ContentDetail extends Component {
         const abc = this.state.categorys.slice(0, 6)
         return abc.map((value) => {
             return (
-                <li className="list-group-item">
+                <li key={value.id} className="list-group-item">
                     <Row>
                         <Col lg={8} sm={8} xs={10} className="pr-lg-2  pr-sm-2 pr-xl-2">
                             <Link to={`/news-detail/${value.url}`}>

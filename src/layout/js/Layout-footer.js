@@ -40,8 +40,8 @@ class LayoutFooter extends Component{
     renderCategoryPC =()=> {
         return this.state.category.map((value) => {
             return (
-                <li className="nav-item item-list-menu-category-footer-pc pl-lg-0 pr-lg-0 pl-1 pr-1 ">
-                    <Link className=" nav-link" key={value.category_url} to={`/category/${value.category_url}`}>{value.name}</Link>
+                <li key={value.id} className="nav-item item-list-menu-category-footer-pc pl-lg-0 pr-lg-0 pl-1 pr-1 ">
+                    <Link className=" nav-link" key={value.id} to={`/category/${value.category_url}`}>{value.name}</Link>
                 </li>
             );
         });
@@ -104,19 +104,19 @@ class LayoutFooter extends Component{
                                             <h3 className="text-uppercase">ý kiến bài viết</h3>
                                             <div className="row">
                                                 <div className="col-6 col-lg-12">
-                                                    <a className="text-decoration-none" href="#">
+                                                    <Link to={`#`} className="text-decoration-none">
                                                         <p className="mb-lg-0 text-item-footer-bottom"><i
                                                             className="hihi text-danger fas fa-envelope"/> huypn@gmail.com
                                                         </p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div className="col-6 col-lg-12">
-                                                    <a className="text-decoration-none" href="#">
+                                                    <Link to={`#`} className="text-decoration-none" >
                                                         <p className="mb-lg-0 text-lg-left text-right text-item-footer-bottom">
                                                             <i
                                                                 className="text-danger fas fa-question-circle"/> Câu hỏi
                                                             thường gặp</p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,19 +125,19 @@ class LayoutFooter extends Component{
                                             <h3 className="text-uppercase">Hợp tác nội dung</h3>
                                             <div className="row">
                                                 <div className="col-6 col-lg-12">
-                                                    <a className="text-decoration-none" href="#">
+                                                    <Link to={`#`} className="text-decoration-none" >
                                                         <p className="mb-lg-0 text-item-footer-bottom "><i
                                                             className="text-danger fas fa-envelope"/> marketing@nal.com
                                                         </p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div className="col-6 col-lg-12">
-                                                    <a className="text-decoration-none" href="#">
+                                                    <Link to={`#`} className="text-decoration-none" >
                                                         <p className="mb-lg-0 text-lg-left text-right text-item-footer-bottom">
                                                             <i
                                                                 className="text-danger fas fa-phone-square"/> 0912 345
                                                             678</p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,18 +146,18 @@ class LayoutFooter extends Component{
                                             <h3 className="text-uppercase">Hỗ trợ quảng cáo</h3>
                                             <div className="row">
                                                 <div className="col-12 ">
-                                                    <a className="text-decoration-none" href="#">
+                                                    <Link to={`#`} className="text-decoration-none" >
                                                         <p className="mb-lg-0 text-item-footer-bottom"><i
                                                             className="text-danger fas fa-envelope"/> marketing@nal.com
                                                         </p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div className="col-12">
-                                                    <a className="text-decoration-none" href="#">
+                                                    <Link to={`#`} className="text-decoration-none">
                                                         <p className="mb-lg-0 text-item-footer-bottom"><i
                                                             className="text-danger fas fa-phone-square"/> 0912 345 678
                                                         </p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,6 +3,9 @@ import "antd/dist/antd.css";
 import "../css/Layout-profile.css"
 import { Row, Col, Avatar, Tabs} from 'antd';
 import {Container } from 'react-bootstrap';
+import CreateForm from "./Create-News";
+import ListNewsUser from "./ListNewsUser";
+import {Link} from "react-router-dom";
 
 class LayoutProfile extends Component {
     constructor(props) {
@@ -22,7 +25,6 @@ class LayoutProfile extends Component {
         this.setState({
            hehe: JSON.parse(haha)
         });
-        console.log(haha)
     };
 
     hihi = ()=> {
@@ -36,13 +38,14 @@ class LayoutProfile extends Component {
                     <Col lg={14}>
                         <div className="userData mt-5">
                             <h2 className="d-block" style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-                                <a href="#">{this.state.hehe.name}</a>
+                                <Link to={`#`}>{this.state.hehe.name}</Link>
                             </h2>
                         </div>
                     </Col>
                 </Row>
+
                 <Row>
-                    <Col>
+                    <Col lg={24}>
                         <Tabs type="card">
                             <TabPane tab="Information user" key="1">
                                 <ul className="list-group list-group-flush">
@@ -76,17 +79,15 @@ class LayoutProfile extends Component {
                                             </Col>
                                         </Row>
                                     </li>
-                                    {/*<li className="list-group-item">*/}
-                                        {/*<Row >*/}
-                                            {/*<Col md={4} lg={5}>*/}
-                                                {/*<label className="font-weight-bold">Update-at</label>*/}
-                                            {/*</Col>*/}
-                                            {/*<Col md={20} lg={19}>*/}
-                                                {/*<span>Jamshaid Kamran</span>*/}
-                                            {/*</Col>*/}
-                                        {/*</Row>*/}
-                                    {/*</li>*/}
                                 </ul>
+                            </TabPane>
+
+                            <TabPane tab="Create News" key="2">
+                                <CreateForm/>
+                            </TabPane>
+
+                            <TabPane tab="List News" key="3">
+                                <ListNewsUser/>
                             </TabPane>
                         </Tabs>
                     </Col>
@@ -94,11 +95,6 @@ class LayoutProfile extends Component {
             </div>
         )
     }
-
-    // componentDidMount() {
-    //      this.hihi()
-    // }
-
     render() {
         return (
             <div>

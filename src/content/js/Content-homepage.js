@@ -7,7 +7,6 @@ import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
 
-
 class ContentHompage extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +14,7 @@ class ContentHompage extends Component {
             news: [],
             api: "https://nalvnsmartnews.herokuapp.com/api/news",
             hasMore: true,
-            loading: false
+            loading: false,
         };
     }
 
@@ -71,7 +70,6 @@ class ContentHompage extends Component {
                             <Link to={`/news-detail/${value.url}`}><img className="item-news" src={value.img}
                                                                        alt=""/></Link>
                         </Col>
-
                         <Col lg={16} sm={16} xs={14}>
                             <h4 className="title-text-item-content-fl">
                                 <Link to={`/news-detail/${value.url}`}>{value.title}</Link>
@@ -93,11 +91,11 @@ class ContentHompage extends Component {
     }
 
     renderNewsRightFeature = () => {
-        return this.state.news.map((value) => {
+        return this.state.news.map((value,index) => {
             return (
                 <li key={value.id} className="list-group-item">
                     <Row>
-                        <Col lg={9} className=" pr-lg-1">
+                        <Col key={value.id} lg={9} className=" pr-lg-1">
                             <Link to={`/news-detail/${value.url}`}><img className="img-fluid"
                                                                        src={value.img}
                                                                        alt=""/>
