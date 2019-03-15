@@ -40,8 +40,8 @@ class LayoutFooter extends Component{
     renderCategoryPC =()=> {
         return this.state.category.map((value) => {
             return (
-                <li className="nav-item item-list-menu-category-footer-pc pl-lg-0 pr-lg-0 pl-1 pr-1 ">
-                    <Link className=" nav-link" key={value.category_url} to={`/category/${value.category_url}`}>{value.name}</Link>
+                <li key={value.id} className="nav-item item-list-menu-category-footer-pc pl-lg-0 pr-lg-0 pl-1 pr-1 ">
+                    <Link className=" nav-link" key={value.id} to={`/category/${value.category_url}`}>{value.name}</Link>
                 </li>
             );
         });

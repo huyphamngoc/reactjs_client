@@ -91,11 +91,11 @@ class ContentHompage extends Component {
     }
 
     renderNewsRightFeature = () => {
-        return this.state.news.map((value) => {
+        return this.state.news.map((value,index) => {
             return (
                 <li key={value.id} className="list-group-item">
                     <Row>
-                        <Col lg={9} className=" pr-lg-1">
+                        <Col key={value.id} lg={9} className=" pr-lg-1">
                             <Link to={`/news-detail/${value.url}`}><img className="img-fluid"
                                                                        src={value.img}
                                                                        alt=""/>
