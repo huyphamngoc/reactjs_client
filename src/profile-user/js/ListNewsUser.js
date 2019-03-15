@@ -1,11 +1,9 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import {List, Icon, notification, Button, Modal} from 'antd';
-
 const confirm = Modal.confirm;
 
 const API_URL = "https://nalvnsmartnews.herokuapp.com";
-
 
 const openNotificationWithIcon = (type, notifi) => {
     notification[type]({
@@ -27,6 +25,7 @@ class ListNewsUser extends React.Component {
         this.state = {
             listData: [],
             loading: false,
+            user:null
         };
     }
 
@@ -41,22 +40,22 @@ class ListNewsUser extends React.Component {
             onOk() {
                 _this.enterLoading();
                 var req = new XMLHttpRequest();
-                var dataListNews;
+                // var dataListNews;
                 req.open("DELETE", API_URL + "/api/news/" + [item.id]);
                 req.setRequestHeader("Content-Type", "application/json");
                 req.onload = function () {
                     if (req.status === 200 || req.status === 201) {
-                        dataListNews = (JSON.parse(this.responseText));
+                        // dataListNews = (JSON.parse(this.responseText));
                         openNotificationWithIcon('success', "Deleted" + [item.title]);
                         setTimeout(() => {
                             openNotificationWithIcon('warning', "The page will automatically reload !!!");
                         }, 1000);
+                        _this.getListNews();
                     } else {
                         console.log(JSON.parse(this.responseText));
                     }
                 };
                 req.send();
-                _this.getListNews();
             },
             onCancel() {
                 console.log('Cancel');
@@ -68,10 +67,11 @@ class ListNewsUser extends React.Component {
     {
         const haha = JSON.parse(sessionStorage.getItem('userData'));
         this.setState({
-            user:haha.id
-        }, ()=>{
+            user: haha.id
+        },()=>{
             this.getListNews()
         })
+
     }
 
     enterLoading = () => {
@@ -111,7 +111,6 @@ class ListNewsUser extends React.Component {
                         pageSize: 5,
                     }}
                     dataSource={this.state.listData}
-
                     renderItem={item => (
                         <List.Item
                             key={item.title}

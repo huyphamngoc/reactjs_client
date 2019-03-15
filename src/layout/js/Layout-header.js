@@ -158,9 +158,9 @@ class LayoutHeader extends Component {
                                     <div className="pt-3 ">
                                         <ul className="nav justify-content-end">
                                             <li className=" nav-item">
-                                                <a className="nav-link" href="#">
+                                                <Link className="nav-link" to={`#`}>
                                                     <LoginLogout passedFunction={this.handleShow}/>
-                                                </a>
+                                                </Link>
                                             </li>
                                         </ul>
                                     </div>

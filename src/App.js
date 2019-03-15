@@ -9,7 +9,6 @@ import ContentDetail from "./content/js/Content-Detail";
 import UserDetail from "./content/js/UserDetail";
 import UserPost from "./content/js/UserPost";
 import LayoutProfile from "./profile-user/js/Layout-profile";
-import RegisterUser from "./profile-user/js/Register-User";
 
 class App extends Component {
     render() {

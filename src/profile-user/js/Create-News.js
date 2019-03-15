@@ -246,7 +246,7 @@ class DynamicRule extends React.Component {
                                 }}
                             />
                         )}
-                        <img
+                        <img alt="img-error"
                             hidden={false}
                             id='sowImage'
                             style={{width: 180, height: 180}}

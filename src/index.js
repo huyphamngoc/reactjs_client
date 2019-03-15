@@ -16,7 +16,6 @@ import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'font-awesome/css/font-awesome.css';
 
 import $ from 'jquery';
-import RegisterUser from "./profile-user/js/Register-User";
 window.$ = $;
 
 

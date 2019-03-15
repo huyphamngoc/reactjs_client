@@ -70,7 +70,6 @@ class ContentHompage extends Component {
                             <Link to={`/news-detail/${value.url}`}><img className="item-news" src={value.img}
                                                                        alt=""/></Link>
                         </Col>
-
                         <Col lg={16} sm={16} xs={14}>
                             <h4 className="title-text-item-content-fl">
                                 <Link to={`/news-detail/${value.url}`}>{value.title}</Link>

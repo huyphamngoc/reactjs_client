@@ -5,6 +5,7 @@ import { Row, Col, Avatar, Tabs} from 'antd';
 import {Container } from 'react-bootstrap';
 import CreateForm from "./Create-News";
 import ListNewsUser from "./ListNewsUser";
+import {Link} from "react-router-dom";
 
 class LayoutProfile extends Component {
     constructor(props) {
@@ -37,7 +38,7 @@ class LayoutProfile extends Component {
                     <Col lg={14}>
                         <div className="userData mt-5">
                             <h2 className="d-block" style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-                                <a href="#">{this.state.hehe.name}</a>
+                                <Link to={`#`}>{this.state.hehe.name}</Link>
                             </h2>
                         </div>
                     </Col>

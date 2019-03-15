@@ -7,7 +7,6 @@ import {BackTop, Col, Row, message} from "antd";
 import {Container} from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {Link} from "react-router-dom";
-import { createBrowserHistory } from 'history';
 
 class ContentCaegoty extends Component{
     constructor(props){

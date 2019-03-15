@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="980a4f46-3a45-4463-a133-c8cf9835d983" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/js/Content-Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/js/Content-Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/js/Content-homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/js/Content-homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/js/Layout-footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/js/Layout-footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/js/Layout-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/js/Layout-header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/profile-user/js/Create-News.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile-user/js/Create-News.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/profile-user/js/Layout-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile-user/js/Layout-profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/profile-user/js/ListNewsUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile-user/js/ListNewsUser.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/profile-user/js/ListNewsUser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="357">
+              <caret line="51" column="44" lean-forward="true" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -45,23 +53,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/profile-user/js/Create-News.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="80" column="10" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="80" selection-end-column="10" />
+            <state relative-caret-position="455">
+              <caret line="250" column="41" lean-forward="true" selection-start-line="250" selection-start-column="41" selection-end-line="250" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#343#925#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/content/js/Content-Category.js">
+        <entry file="file://$PROJECT_DIR$/src/profile-user/js/Layout-profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3060">
-              <caret line="199" column="60" selection-start-line="199" selection-start-column="60" selection-end-line="199" selection-end-column="60" />
+            <state>
+              <caret selection-end-line="1" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#1486#3435#0" />
               </folding>
             </state>
           </provider>
@@ -70,10 +78,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/content/js/Content-homepage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="59" column="24" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="8" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#5748#7469#0" />
               </folding>
             </state>
@@ -81,10 +88,48 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/content/js/Content-Detail.js">
+        <entry file="file://$PROJECT_DIR$/src/layout/js/Layout-footer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+            <state relative-caret-position="731">
+              <caret line="164" column="38" lean-forward="true" selection-start-line="164" selection-start-column="38" selection-end-line="164" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/content/js/Content-Category.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#359#407#0" expanded="true" />
+                <element signature="e#489#532#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/layout/js/Layout-header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="674">
+              <caret line="160" column="84" lean-forward="true" selection-start-line="160" selection-start-column="84" selection-end-line="160" selection-end-column="84" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -154,20 +199,20 @@
         <option value="$PROJECT_DIR$/src/demoHistory.js" />
         <option value="$PROJECT_DIR$/src/content/css/Content-Detail.css" />
         <option value="$PROJECT_DIR$/src/content/js/Content-Detail.js" />
-        <option value="$PROJECT_DIR$/src/layout/js/Layout-header.js" />
-        <option value="$PROJECT_DIR$/src/layout/js/Layout-footer.js" />
-        <option value="$PROJECT_DIR$/src/content/js/Content-Category.js" />
         <option value="$PROJECT_DIR$/src/layout/js/Login-Logout.js" />
         <option value="$USER_HOME$/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All/Post-Form.js" />
-        <option value="$PROJECT_DIR$/src/content/js/Content-homepage.js" />
         <option value="$PROJECT_DIR$/src/profile-user/css/Register-User.css" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/profile-user/js/Register-User.js" />
         <option value="$PROJECT_DIR$/src/layout/js/Login-Register.js" />
         <option value="$USER_HOME$/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All/ListNewsUser.js" />
+        <option value="$PROJECT_DIR$/src/layout/js/Layout-footer.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/profile-user/js/Layout-profile.js" />
+        <option value="$PROJECT_DIR$/src/content/js/Content-homepage.js" />
+        <option value="$PROJECT_DIR$/src/content/js/Content-Category.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/layout/js/Layout-header.js" />
         <option value="$PROJECT_DIR$/src/profile-user/js/Create-News.js" />
+        <option value="$PROJECT_DIR$/src/profile-user/js/Layout-profile.js" />
         <option value="$PROJECT_DIR$/src/profile-user/js/ListNewsUser.js" />
       </list>
     </option>
@@ -186,7 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,6 +254,26 @@
               <item name="my-app-reactjs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-app-reactjs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-app-reactjs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-app-reactjs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-app-reactjs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-app-reactjs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-app-reactjs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -229,6 +293,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,18 +366,19 @@
       <workItem from="1552463199607" duration="8078000" />
       <workItem from="1552525952355" duration="6814000" />
       <workItem from="1552545867974" duration="12184000" />
-      <workItem from="1552574113409" duration="6544000" />
+      <workItem from="1552574113409" duration="7998000" />
+      <workItem from="1552631973230" duration="1533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226358000" />
+    <option name="totallyTimeSpent" value="229345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18683812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18986385" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" />
@@ -328,13 +394,37 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" visible="true" weight="0.36752138" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" weight="0.51623935" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.7042735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.022692889" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18986385" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="DB Browser" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="DB Execution Console" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" weight="0.51623935" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.7042735" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.022692889" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -406,16 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layout/js/Layout-footer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="43" column="87" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/layout/js/Login-Logout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -447,16 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layout/js/Layout-header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="103" column="49" selection-start-line="103" selection-start-column="49" selection-end-line="103" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -523,10 +593,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/content/js/Content-Detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="85">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/js/Layout-footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="164" column="38" lean-forward="true" selection-start-line="164" selection-start-column="38" selection-end-line="164" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/content/js/Content-Category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -535,8 +635,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#359#407#0" expanded="true" />
@@ -545,42 +645,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/content/js/Content-Category.js">
+    <entry file="file://$PROJECT_DIR$/src/layout/js/Layout-header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="199" column="60" selection-start-line="199" selection-start-column="60" selection-end-line="199" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/profile-user/js/Layout-profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#1486#3435#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content/js/Content-homepage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="59" column="24" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#5748#7469#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content/js/Content-Detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+        <state relative-caret-position="674">
+          <caret line="160" column="84" lean-forward="true" selection-start-line="160" selection-start-column="84" selection-end-line="160" selection-end-column="84" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -589,19 +657,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/profile-user/js/Create-News.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="80" column="10" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="80" selection-end-column="10" />
+        <state relative-caret-position="455">
+          <caret line="250" column="41" lean-forward="true" selection-start-line="250" selection-start-column="41" selection-end-line="250" selection-end-column="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#343#925#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/content/js/Content-homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <element signature="e#5748#7469#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/profile-user/js/Layout-profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#1486#3435#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/profile-user/js/ListNewsUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="357">
+          <caret line="51" column="44" lean-forward="true" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
